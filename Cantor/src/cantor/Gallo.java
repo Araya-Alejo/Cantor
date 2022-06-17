@@ -1,4 +1,4 @@
-package com.mycompany.cantor;
+package cantor;
 
 
 

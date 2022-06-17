@@ -1,5 +1,4 @@
-package com.mycompany.cantor;
-
+package cantor;
 
 
 public class Instrumento {

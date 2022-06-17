@@ -1,8 +1,6 @@
-package com.mycompany.cantor;
+package cantor;
 
-import com.mycompany.cantor.Interface.View;
-
-
+import cantor.Interface.View;
 
 public class Main {
 
@@ -12,6 +10,7 @@ public class Main {
         
         var elegir = new View();
         elegir.setVisible(true);
+        
     }
     
 }

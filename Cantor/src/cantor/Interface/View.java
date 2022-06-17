@@ -1,4 +1,4 @@
-package com.mycompany.cantor.Interface;
+package cantor.Interface;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,7 +11,7 @@ package com.mycompany.cantor.Interface;
  *
  * @author Mega Tecnologia
  */
-import util.Util;
+import Util.util;
 public class View extends javax.swing.JFrame {
 
     /**
@@ -84,20 +84,23 @@ public class View extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabel1))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btn_ingresar)
-                .addGap(18, 18, 18)
-                .addComponent(btn_elegir)
-                .addGap(18, 18, 18)
-                .addComponent(btn_modificar)
-                .addGap(9, 9, 9)
-                .addComponent(btn_eliminar))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addComponent(btn_salir))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(btn_ingresar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_elegir)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_modificar)
+                        .addGap(9, 9, 9)
+                        .addComponent(btn_eliminar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addComponent(btn_salir)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +114,8 @@ public class View extends javax.swing.JFrame {
                     .addComponent(btn_modificar)
                     .addComponent(btn_eliminar))
                 .addGap(88, 88, 88)
-                .addComponent(btn_salir))
+                .addComponent(btn_salir)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,7 +124,7 @@ public class View extends javax.swing.JFrame {
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         // TODO add your handling code here:
 
-        Util.POP_MESAGES("Se a cerrado correctamente");
+        util.MENSAJE("Se a cerrado correctamente");
         System.exit(0);
     }//GEN-LAST:event_btn_salirActionPerformed
 
