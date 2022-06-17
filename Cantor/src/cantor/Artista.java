@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class Artista extends SerCantor{
 
-    public Artista(String nombre, String tipo, LocalDate fechaNacimiento) {
+    public Artista(String nombre, String tipo, String fechaNacimiento) {
         super(nombre, tipo, fechaNacimiento);
     }
     

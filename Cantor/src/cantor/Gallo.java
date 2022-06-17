@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class Gallo extends SerCantor{
 
-    public Gallo(String nombre, String tipo, LocalDate fechaNacimiento) {
+    public Gallo(String nombre, String tipo, String fechaNacimiento) {
         super(nombre, tipo, fechaNacimiento);
     }
     
