@@ -161,23 +161,23 @@ public class Elegir extends javax.swing.JFrame {
     private void _LISTA_DE_ARTISTASItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__LISTA_DE_ARTISTASItemStateChanged
         // TODO add your handling code here:
 
-        String value = (String) _LISTA_DE_ARTISTAS.getSelectedItem();
-        Host host = new Host();
-        if (value.equals(" ")) {
-            _FIELD_TIPO.setText("");
-            _FIELD_INSTRUMENTO_NOMBRE.setText("");
-            _FIELD_INSTRUMENTO_TIPO.setText("");
-            _FIELD_CANTAR.setText("");
-        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
-            _FIELD_TIPO.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).tipo);
-        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
-            _FIELD_TIPO.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).tipo);
-        } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-            _FIELD_TIPO.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).tipo);
-            _FIELD_INSTRUMENTO_NOMBRE.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).usa[0].nombre);
-            _FIELD_INSTRUMENTO_TIPO.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).usa[0].tipo);
-            _FIELD_CANTAR.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).cantar());
-        }
+//        String value = (String) _LISTA_DE_ARTISTAS.getSelectedItem();
+//        Host host = new Host();
+//        if (value.equals(" ")) {
+//            _FIELD_TIPO.setText("");
+//            _FIELD_INSTRUMENTO_NOMBRE.setText("");
+//            _FIELD_INSTRUMENTO_TIPO.setText("");
+//            _FIELD_CANTAR.setText("");
+//        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
+//            _FIELD_TIPO.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).tipo);
+//        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
+//            _FIELD_TIPO.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).tipo);
+//        } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+//            _FIELD_TIPO.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).tipo);
+//            _FIELD_INSTRUMENTO_NOMBRE.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).usa[0].nombre);
+//            _FIELD_INSTRUMENTO_TIPO.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).usa[0].tipo);
+//            _FIELD_CANTAR.setText(SerCantor.artistas.get(host.POSICION_LISTA(value)).cantar());
+//        }
     }//GEN-LAST:event__LISTA_DE_ARTISTASItemStateChanged
 
     private void _LISTA_DE_ARTISTASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_DE_ARTISTASActionPerformed
@@ -187,19 +187,19 @@ public class Elegir extends javax.swing.JFrame {
     private void btn_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargarActionPerformed
         // TODO add your handling code here:
 
-        for (int i = 0; i < SerCantor.artistas.size(); i++) {
-            if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
-                limpiarListaCanario(i);
-                _LISTA_DE_ARTISTAS.addItem(SerCantor.gallo.get(i).nombre);
-            } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
-                limpiarListaGallo(i);
-                _LISTA_DE_ARTISTAS.addItem(SerCantor.gallo.get(i).nombre);
-            }
-            if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-                limpiarListaArtista(i);
-                _LISTA_DE_ARTISTAS.addItem(SerCantor.artistas.get(i).nombre);
-            }
-        }
+//        for (int i = 0; i < SerCantor.artistas.size(); i++) {
+//            if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
+//                limpiarListaCanario(i);
+//                _LISTA_DE_ARTISTAS.addItem(SerCantor.gallo.get(i).nombre);
+//            } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
+//                limpiarListaGallo(i);
+//                _LISTA_DE_ARTISTAS.addItem(SerCantor.gallo.get(i).nombre);
+//            }
+//            if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+//                limpiarListaArtista(i);
+//                _LISTA_DE_ARTISTAS.addItem(SerCantor.artistas.get(i).nombre);
+//            }
+//        }
     }//GEN-LAST:event_btn_cargarActionPerformed
 
     private void _LISTA_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_TIPOActionPerformed
