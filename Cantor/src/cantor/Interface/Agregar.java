@@ -54,8 +54,6 @@ public class Agregar extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -63,22 +61,17 @@ public class Agregar extends javax.swing.JFrame {
         _LISTA_TIPO = new javax.swing.JComboBox<>();
         ingreso_LISTA_INSTRUMENTOS = new javax.swing.JComboBox<>();
         ingreso_NOMBRE_INSTRUMENTO = new javax.swing.JTextField();
-        ingreso_TIPO_INSTRUMENTO = new javax.swing.JTextField();
-        ingreso_CANTAR = new javax.swing.JTextField();
         ingreso_NOMBRE = new javax.swing.JTextField();
         btn_ingresar2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         dia = new javax.swing.JComboBox<>();
         mes = new javax.swing.JComboBox<>();
         ano = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel28.setText("NOMBRE:");
-
-        jLabel29.setText("TIPO:        ");
-
-        jLabel30.setText("CANTAR:");
 
         jLabel26.setText("NOMBRE:");
 
@@ -114,20 +107,6 @@ public class Agregar extends javax.swing.JFrame {
             }
         });
 
-        ingreso_TIPO_INSTRUMENTO.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        ingreso_TIPO_INSTRUMENTO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingreso_TIPO_INSTRUMENTOActionPerformed(evt);
-            }
-        });
-
-        ingreso_CANTAR.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        ingreso_CANTAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingreso_CANTARActionPerformed(evt);
-            }
-        });
-
         ingreso_NOMBRE.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         ingreso_NOMBRE.setToolTipText("");
         ingreso_NOMBRE.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +130,13 @@ public class Agregar extends javax.swing.JFrame {
 
         ano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009" }));
 
+        jButton1.setText("AGREGAR INSTRUMENTO");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,17 +145,13 @@ public class Agregar extends javax.swing.JFrame {
                 .addGap(0, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_ingresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel31)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ingreso_LISTA_INSTRUMENTOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel29)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ingreso_TIPO_INSTRUMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel28)
@@ -183,14 +165,11 @@ public class Agregar extends javax.swing.JFrame {
                                             .addComponent(jLabel1)
                                             .addComponent(ingreso_NOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel30)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ingreso_CANTAR))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(98, 98, 98)
                                     .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ano, 0, 1, Short.MAX_VALUE))))
+                                    .addComponent(ano, 0, 1, Short.MAX_VALUE)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(60, 60, 60))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -224,18 +203,12 @@ public class Agregar extends javax.swing.JFrame {
                     .addComponent(jLabel31)
                     .addComponent(ingreso_LISTA_INSTRUMENTOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(ingreso_NOMBRE_INSTRUMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(ingreso_TIPO_INSTRUMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(ingreso_CANTAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(28, 28, 28)
                 .addComponent(btn_ingresar2)
                 .addGap(12, 12, 12))
         );
@@ -247,14 +220,6 @@ public class Agregar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ingreso_NOMBRE_INSTRUMENTOActionPerformed
 
-    private void ingreso_TIPO_INSTRUMENTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_TIPO_INSTRUMENTOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ingreso_TIPO_INSTRUMENTOActionPerformed
-
-    private void ingreso_CANTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_CANTARActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ingreso_CANTARActionPerformed
-
     private void ingreso_LISTA_INSTRUMENTOSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ingreso_LISTA_INSTRUMENTOSItemStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_ingreso_LISTA_INSTRUMENTOSItemStateChanged
@@ -263,10 +228,8 @@ public class Agregar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (ingreso_LISTA_INSTRUMENTOS.getSelectedItem().equals("NO")) {  //User have not entered anything.
             ingreso_NOMBRE_INSTRUMENTO.setEnabled(false);
-            ingreso_TIPO_INSTRUMENTO.setEnabled(false);
         } else if (ingreso_LISTA_INSTRUMENTOS.getSelectedItem().equals("SI")) {
             ingreso_NOMBRE_INSTRUMENTO.setEnabled(true);
-            ingreso_TIPO_INSTRUMENTO.setEnabled(true);
         }
 
     }//GEN-LAST:event_ingreso_LISTA_INSTRUMENTOSActionPerformed
@@ -283,7 +246,6 @@ public class Agregar extends javax.swing.JFrame {
 
             var instrumento = new Instrumento();
             instrumento.nombre = ingreso_NOMBRE_INSTRUMENTO.getText();
-            instrumento.tipo = ingreso_TIPO_INSTRUMENTO.getText();
 
             artista.usa.add(instrumento);
 
@@ -325,8 +287,6 @@ public class Agregar extends javax.swing.JFrame {
 
         ingreso_NOMBRE.setText("");
         ingreso_NOMBRE_INSTRUMENTO.setText("");
-        ingreso_TIPO_INSTRUMENTO.setText("");
-        ingreso_CANTAR.setText("");
 
     }//GEN-LAST:event_btn_ingresar2ActionPerformed
 
@@ -335,16 +295,21 @@ public class Agregar extends javax.swing.JFrame {
 
         if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             ingreso_NOMBRE_INSTRUMENTO.setEnabled(true);
-            ingreso_TIPO_INSTRUMENTO.setEnabled(true);
         } else {
             ingreso_NOMBRE_INSTRUMENTO.setEnabled(false);
-            ingreso_TIPO_INSTRUMENTO.setEnabled(false);
         }
     }//GEN-LAST:event__LISTA_TIPOActionPerformed
 
     private void ingreso_NOMBREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_NOMBREActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ingreso_NOMBREActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        var ingresar = new Agregar_Instrumento();
+        ingresar.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,18 +351,15 @@ public class Agregar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ano;
     private javax.swing.JButton btn_ingresar2;
     private javax.swing.JComboBox<String> dia;
-    private javax.swing.JTextField ingreso_CANTAR;
     private javax.swing.JComboBox<String> ingreso_LISTA_INSTRUMENTOS;
     private javax.swing.JTextField ingreso_NOMBRE;
     private javax.swing.JTextField ingreso_NOMBRE_INSTRUMENTO;
-    private javax.swing.JTextField ingreso_TIPO_INSTRUMENTO;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JComboBox<String> mes;
     // End of variables declaration//GEN-END:variables
