@@ -302,21 +302,21 @@ public class Agregar extends javax.swing.JFrame {
 
             artista.usa.add(instrumento);
 
-            artista.canto = ingreso_CANTAR.getText();
-            System.out.println("A");
-            SerCantor.artistas.add(artista);
-        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
-            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
-            var gallo = new Gallo(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
-            gallo.nombre = ingreso_NOMBRE.getText();
-            gallo.tipo = ingreso_TIPO.getText();
-            System.out.println("G");
-            SerCantor.gallo.add(gallo);
-        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
-            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
-            var canario = new Canario(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
-            System.out.println("C");
-            SerCantor.canario.add(canario);
+//            artista.canto = ingreso_CANTAR.getText();
+//            System.out.println("A");
+//            SerCantor.artistas.add(artista);
+//        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
+//            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+//            var gallo = new Gallo(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
+//            gallo.nombre = ingreso_NOMBRE.getText();
+//            gallo.tipo = ingreso_TIPO.getText();
+//            System.out.println("G");
+//            SerCantor.gallo.add(gallo);
+//        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
+//            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+//            var canario = new Canario(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
+//            System.out.println("C");
+//            SerCantor.canario.add(canario);
 
 //            artista.usa[0] = instrumento;
 //
