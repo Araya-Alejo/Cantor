@@ -32,7 +32,7 @@ public class Conector {
     
     public void saveAlumno(Artista artista){
         try {
-            PreparedStatement st = connect.prepareStatement("insert into alumnos (Nombre, FechaNacimiento, Momento) values (?,?)");
+            PreparedStatement st = connect.prepareStatement("insert into alumnos (Nombre, FechaNacimiento, ) values (?,?)");
             st.setString(1, artista.getNombre());
             st.setString(2, artista.getApellidos());
             st.execute();
