@@ -299,7 +299,7 @@ public class Agregar extends javax.swing.JFrame {
             var instrumento = new Instrumento();
             instrumento.nombre = ingreso_NOMBRE_INSTRUMENTO.getText();
             instrumento.tipo = ingreso_TIPO_INSTRUMENTO.getText();
-            artista.usa[0] = instrumento;
+            artista.usa.add(instrumento);
 
             artista.canto = ingreso_CANTAR.getText();
             System.out.println("A");

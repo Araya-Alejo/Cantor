@@ -1,11 +1,10 @@
 package cantor;
 
-
-
-import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Artista extends SerCantor{
-
+    public ArrayList<Instrumento> usa;
+    
     public Artista(String nombre, String tipo, String fechaNacimiento) {
         super(nombre, tipo, fechaNacimiento);
     }
