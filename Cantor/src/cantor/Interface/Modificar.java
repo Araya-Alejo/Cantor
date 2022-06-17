@@ -16,6 +16,7 @@ public class Modificar extends javax.swing.JFrame {
      */
     public Modificar() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

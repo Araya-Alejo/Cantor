@@ -16,6 +16,7 @@ public class Elegir extends javax.swing.JFrame {
      */
     public Elegir() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

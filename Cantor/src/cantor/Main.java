@@ -7,8 +7,7 @@ public class Main {
     
     public static void main(String[] args) {
         
-        
-        var elegir = new View();
+        View elegir = new View();
         elegir.setVisible(true);
         
     }

@@ -16,6 +16,7 @@ public class Eliminar extends javax.swing.JFrame {
      */
     public Eliminar() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
