@@ -37,7 +37,6 @@ public class View extends javax.swing.JFrame {
         btn_ingresar = new javax.swing.JButton();
         btn_elegir = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
-        btn_eliminar = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,17 +58,10 @@ public class View extends javax.swing.JFrame {
             }
         });
 
-        btn_modificar.setText("Modificar");
+        btn_modificar.setText("Modificar/Elimiar");
         btn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_modificarActionPerformed(evt);
-            }
-        });
-
-        btn_eliminar.setText("Eliminar");
-        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_eliminarActionPerformed(evt);
             }
         });
 
@@ -90,17 +82,15 @@ public class View extends javax.swing.JFrame {
                         .addGap(110, 110, 110)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(btn_ingresar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_elegir)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_modificar)
-                        .addGap(9, 9, 9)
-                        .addComponent(btn_eliminar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(btn_salir)))
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_ingresar)
+                                .addGap(43, 43, 43)
+                                .addComponent(btn_elegir)
+                                .addGap(36, 36, 36)
+                                .addComponent(btn_modificar))
+                            .addComponent(btn_salir))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,11 +99,10 @@ public class View extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addComponent(jLabel1)
                 .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_ingresar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_elegir)
                     .addComponent(btn_modificar)
-                    .addComponent(btn_eliminar))
+                    .addComponent(btn_ingresar))
                 .addGap(88, 88, 88)
                 .addComponent(btn_salir)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -142,13 +131,6 @@ public class View extends javax.swing.JFrame {
         var elegir = new Elegir();
         elegir.setVisible(true);
     }//GEN-LAST:event_btn_elegirActionPerformed
-
-    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        // TODO add your handling code here:
-
-        var eliminar = new Eliminar();
-        eliminar.setVisible(true);
-    }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
         // TODO add your handling code here:
@@ -195,7 +177,6 @@ public class View extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_elegir;
-    private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_ingresar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_salir;
