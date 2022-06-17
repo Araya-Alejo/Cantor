@@ -4,7 +4,6 @@
  */
 package cantor.Interface;
 
-
 import Util.util;
 import cantor.Artista;
 import cantor.Canario;
@@ -24,9 +23,7 @@ public class Agregar extends javax.swing.JFrame {
     /**
      * Creates new form Agregar
      */
-   
-    
-    public Agregar(){
+    public Agregar() {
         initComponents();
         setLocationRelativeTo(null);
 //        rellenarComboConductores(_LISTA_TIPO);
@@ -47,7 +44,6 @@ public class Agregar extends javax.swing.JFrame {
 //                System.out.println("Error al cargar ComboBox" + e);
 //            }
 //        }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,9 +69,9 @@ public class Agregar extends javax.swing.JFrame {
         ingreso_NOMBRE = new javax.swing.JTextField();
         btn_ingresar2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        dia = new javax.swing.JComboBox<>();
+        mes = new javax.swing.JComboBox<>();
+        ano = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,11 +153,11 @@ public class Agregar extends javax.swing.JFrame {
 
         jLabel2.setText("FECHA DE NACIMIENTO:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "0", "07", "08", "09", "10", "11", "12" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -203,19 +199,19 @@ public class Agregar extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(ingreso_CANTAR))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(108, 108, 108)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox3, 0, 1, Short.MAX_VALUE))))
+                                        .addGap(98, 98, 98)
+                                        .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ano, 0, 1, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(_LISTA_TIPO, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)))
-                        .addGap(76, 76, 76))
+                        .addGap(60, 60, 60))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(208, 208, 208))))
+                        .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(201, 201, 201))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,9 +231,9 @@ public class Agregar extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
@@ -292,39 +288,42 @@ public class Agregar extends javax.swing.JFrame {
 
     private void btn_ingresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresar2ActionPerformed
         // TODO add your handling code here:
-//
-//        if (ingreso_NOMBRE.getText().equals("") || ingreso_TIPO.getText().equals("")) {
-//            util.MENSAJE("Porfavor ingrese el valor faltante.");
-//            ingreso_NOMBRE.requestFocusInWindow();
-//        } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-//            var artista = new Artista(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), ingreso_NACIMIENTO.getText());
-//
-//            var instrumento = new Instrumento();
-//            instrumento.nombre = ingreso_NOMBRE_INSTRUMENTO.getText();
-//            instrumento.tipo = ingreso_TIPO_INSTRUMENTO.getText();
-//            artista.usa[0] = instrumento;
-//
-//            artista.canto = ingreso_CANTAR.getText();
-//            System.out.println("A");
-//            SerCantor.artistas.add(artista);
-//        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
-//            var gallo = new Gallo(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), ingreso_NACIMIENTO.getText());
-//            gallo.nombre = ingreso_NOMBRE.getText();
-//            gallo.tipo = ingreso_TIPO.getText();
-//            System.out.println("G");
-//            SerCantor.gallo.add(gallo);
-//        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
-//            var canario = new Canario(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), ingreso_NACIMIENTO.getText());
-//            System.out.println("C");
-//            SerCantor.canario.add(canario);
-//        }
-//
-//        ingreso_NOMBRE.setText("");
-//        ingreso_TIPO.setText("");
-//        ingreso_NOMBRE_INSTRUMENTO.setText("");
-//        ingreso_TIPO_INSTRUMENTO.setText("");
-//        ingreso_CANTAR.setText("");
-//        
+
+        if (ingreso_NOMBRE.getText().equals("") || ingreso_TIPO.getText().equals("")) {
+            util.MENSAJE("Porfavor ingrese el valor faltante.");
+            ingreso_NOMBRE.requestFocusInWindow();
+        } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+            var artista = new Artista(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
+
+            var instrumento = new Instrumento();
+            instrumento.nombre = ingreso_NOMBRE_INSTRUMENTO.getText();
+            instrumento.tipo = ingreso_TIPO_INSTRUMENTO.getText();
+            artista.usa[0] = instrumento;
+
+            artista.canto = ingreso_CANTAR.getText();
+            System.out.println("A");
+            SerCantor.artistas.add(artista);
+        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
+            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+            var gallo = new Gallo(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
+            gallo.nombre = ingreso_NOMBRE.getText();
+            gallo.tipo = ingreso_TIPO.getText();
+            System.out.println("G");
+            SerCantor.gallo.add(gallo);
+        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
+            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+            var canario = new Canario(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
+            System.out.println("C");
+            SerCantor.canario.add(canario);
+        }
+
+        ingreso_NOMBRE.setText("");
+        ingreso_TIPO.setText("");
+        ingreso_NOMBRE_INSTRUMENTO.setText("");
+        ingreso_TIPO_INSTRUMENTO.setText("");
+        ingreso_CANTAR.setText("");
+
     }//GEN-LAST:event_btn_ingresar2ActionPerformed
 
     private void ingreso_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_TIPOActionPerformed
@@ -334,7 +333,7 @@ public class Agregar extends javax.swing.JFrame {
     private void _LISTA_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_TIPOActionPerformed
         // TODO add your handling code here:
 
-        if(_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+        if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             ingreso_NOMBRE_INSTRUMENTO.setEnabled(true);
             ingreso_TIPO_INSTRUMENTO.setEnabled(true);
         } else {
@@ -384,16 +383,15 @@ public class Agregar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> _LISTA_TIPO;
+    private javax.swing.JComboBox<String> ano;
     private javax.swing.JButton btn_ingresar2;
+    private javax.swing.JComboBox<String> dia;
     private javax.swing.JTextField ingreso_CANTAR;
     private javax.swing.JComboBox<String> ingreso_LISTA_INSTRUMENTOS;
     private javax.swing.JTextField ingreso_NOMBRE;
     private javax.swing.JTextField ingreso_NOMBRE_INSTRUMENTO;
     private javax.swing.JTextField ingreso_TIPO;
     private javax.swing.JTextField ingreso_TIPO_INSTRUMENTO;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
@@ -402,5 +400,6 @@ public class Agregar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JComboBox<String> mes;
     // End of variables declaration//GEN-END:variables
 }
