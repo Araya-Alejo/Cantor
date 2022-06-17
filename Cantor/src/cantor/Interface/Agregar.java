@@ -87,7 +87,7 @@ public class Agregar extends javax.swing.JFrame {
 
         jLabel27.setText("TIPO:        ");
 
-        jLabel1.setText("INGRESAR ARTISTA");
+        jLabel1.setText("INGRESAR CANTOR");
 
         _LISTA_TIPO.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ARTISTA", "GALLO", "CANARIO" }));
         _LISTA_TIPO.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +144,7 @@ public class Agregar extends javax.swing.JFrame {
             }
         });
 
-        btn_ingresar2.setText("Agregar artista");
+        btn_ingresar2.setText("Agregar cantor");
         btn_ingresar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ingresar2ActionPerformed(evt);
@@ -299,6 +299,7 @@ public class Agregar extends javax.swing.JFrame {
             var instrumento = new Instrumento();
             instrumento.nombre = ingreso_NOMBRE_INSTRUMENTO.getText();
             instrumento.tipo = ingreso_TIPO_INSTRUMENTO.getText();
+<<<<<<< HEAD
             artista.usa.add(instrumento);
 
             artista.canto = ingreso_CANTAR.getText();
@@ -316,6 +317,25 @@ public class Agregar extends javax.swing.JFrame {
             var canario = new Canario(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
             System.out.println("C");
             SerCantor.canario.add(canario);
+=======
+//            artista.usa[0] = instrumento;
+//
+//            artista.canto = ingreso_CANTAR.getText();
+//            System.out.println("A");
+//            SerCantor.artistas.add(artista);
+//        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
+//            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+//            var gallo = new Gallo(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
+//            gallo.nombre = ingreso_NOMBRE.getText();
+//            gallo.tipo = ingreso_TIPO.getText();
+//            System.out.println("G");
+//            SerCantor.gallo.add(gallo);
+//        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
+//            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+//            var canario = new Canario(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
+//            System.out.println("C");
+//            SerCantor.canario.add(canario);
+>>>>>>> d00ed7af3d3be1d5335896a907fc65e7dc6570f3
         }
 
         ingreso_NOMBRE.setText("");
