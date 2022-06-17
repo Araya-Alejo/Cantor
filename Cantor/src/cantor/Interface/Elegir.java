@@ -29,11 +29,7 @@ public class Elegir extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        _FIELD_INSTRUMENTO_NOMBRE = new javax.swing.JTextField();
-        _FIELD_INSTRUMENTO_TIPO = new javax.swing.JTextField();
         _LISTA_DE_ARTISTAS = new javax.swing.JComboBox<>();
         btn_cargar = new javax.swing.JToggleButton();
         _LISTA_TIPO = new javax.swing.JComboBox<>();
@@ -44,20 +40,7 @@ public class Elegir extends javax.swing.JFrame {
 
         jLabel3.setText("Instrumento:");
 
-        jLabel4.setText("Nombre:");
-
-        jLabel5.setText("Tipo:      ");
-
         jLabel6.setText("ELEGIR ARTISTA");
-
-        _FIELD_INSTRUMENTO_NOMBRE.setEditable(false);
-
-        _FIELD_INSTRUMENTO_TIPO.setEditable(false);
-        _FIELD_INSTRUMENTO_TIPO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _FIELD_INSTRUMENTO_TIPOActionPerformed(evt);
-            }
-        });
 
         _LISTA_DE_ARTISTAS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         _LISTA_DE_ARTISTAS.addItemListener(new java.awt.event.ItemListener() {
@@ -92,33 +75,20 @@ public class Elegir extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(144, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addGap(102, 102, 102)
-                        .addComponent(btn_cargar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(_LISTA_DE_ARTISTAS, javax.swing.GroupLayout.Alignment.LEADING, 0, 218, Short.MAX_VALUE)
-                            .addComponent(_LISTA_TIPO, javax.swing.GroupLayout.Alignment.LEADING, 0, 218, Short.MAX_VALUE)
-                            .addComponent(_LISTA_DE_INSTRUMENTOS, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(16, 16, 16)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(_FIELD_INSTRUMENTO_NOMBRE)
-                                    .addComponent(_FIELD_INSTRUMENTO_TIPO)))
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(102, 102, 102)
+                .addComponent(btn_cargar)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(_LISTA_DE_ARTISTAS, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(_LISTA_TIPO, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(_LISTA_DE_INSTRUMENTOS, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +97,7 @@ public class Elegir extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cargar)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(_LISTA_TIPO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(_LISTA_DE_ARTISTAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,24 +106,12 @@ public class Elegir extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(_LISTA_DE_INSTRUMENTOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(_FIELD_INSTRUMENTO_NOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(_FIELD_INSTRUMENTO_TIPO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void _FIELD_INSTRUMENTO_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__FIELD_INSTRUMENTO_TIPOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event__FIELD_INSTRUMENTO_TIPOActionPerformed
 
     private void _LISTA_DE_ARTISTASItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__LISTA_DE_ARTISTASItemStateChanged
         // TODO add your handling code here:
@@ -181,28 +139,28 @@ public class Elegir extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event__LISTA_DE_ARTISTASActionPerformed
 
-    private void btn_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargarActionPerformed
-        // TODO add your handling code here:
-
-//        for (int i = 0; i < SerCantor.artistas.size(); i++) {
-//            if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
-//                limpiarListaCanario(i);
-//                _LISTA_DE_ARTISTAS.addItem(SerCantor.gallo.get(i).nombre);
-//            } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
-//                limpiarListaGallo(i);
-//                _LISTA_DE_ARTISTAS.addItem(SerCantor.gallo.get(i).nombre);
-//            }
-//            if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-//                limpiarListaArtista(i);
-//                _LISTA_DE_ARTISTAS.addItem(SerCantor.artistas.get(i).nombre);
-//            }
-//        }
-    }//GEN-LAST:event_btn_cargarActionPerformed
-
     private void _LISTA_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_TIPOActionPerformed
         // TODO add your handling code here:
 
     }//GEN-LAST:event__LISTA_TIPOActionPerformed
+
+    private void btn_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargarActionPerformed
+        // TODO add your handling code here:
+
+        //        for (int i = 0; i < SerCantor.artistas.size(); i++) {
+            //            if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
+                //                limpiarListaCanario(i);
+                //                _LISTA_DE_ARTISTAS.addItem(SerCantor.gallo.get(i).nombre);
+                //            } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
+                //                limpiarListaGallo(i);
+                //                _LISTA_DE_ARTISTAS.addItem(SerCantor.gallo.get(i).nombre);
+                //            }
+            //            if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+                //                limpiarListaArtista(i);
+                //                _LISTA_DE_ARTISTAS.addItem(SerCantor.artistas.get(i).nombre);
+                //            }
+            //        }
+    }//GEN-LAST:event_btn_cargarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,16 +199,12 @@ public class Elegir extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField _FIELD_INSTRUMENTO_NOMBRE;
-    private javax.swing.JTextField _FIELD_INSTRUMENTO_TIPO;
     public static javax.swing.JComboBox<String> _LISTA_DE_ARTISTAS;
     private javax.swing.JComboBox<String> _LISTA_DE_INSTRUMENTOS;
     private javax.swing.JComboBox<String> _LISTA_TIPO;
     private javax.swing.JToggleButton btn_cargar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
