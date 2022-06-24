@@ -344,8 +344,10 @@ public class Agregar extends javax.swing.JFrame {
     public void cargar_combo_momento(ArrayList<String> tiempo) {
         _momento.removeAllItems();
         try {
-            for (String string : tiempo) {
-                _momento.addItem(string);
+            String nombre;
+            for (int i = 0; i < tiempo.size(); i++) {
+                nombre = tiempo.get(i);
+                _instrumento_seleccionado.addItem(nombre);
             }
         } catch (Exception e) {
             System.out.println("Error al cargar ComboBox\n\n" + e);
