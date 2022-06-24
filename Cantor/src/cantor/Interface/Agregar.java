@@ -29,20 +29,24 @@ public class Agregar extends javax.swing.JFrame {
     public Agregar() {
         initComponents();
         setLocationRelativeTo(null);
-        rellenarComboConductores(_instrumento_seleccionado);
+        rellenarComboConductores_instrumentos(_instrumento_seleccionado);
     }
 
-    public void rellenarComboConductores(JComboBox _LISTA_TIPO) {
+    public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
         var conn = new Conector();
+        conn.connect();
+        ArrayList<Instrumento> instrumento = new ArrayList();
+        instrumento = conn.mostrarInstrumentos();
+
         String nombre;
         _instrumento_seleccionado.removeAllItems();
-        
-//        for (Instrumento mostrarInstrumento : conn.mostrarInstrumentos()) {
-//            System.out.println(mostrarInstrumento);
-//        }
+
+        for (Instrumento mostrarInstrumento : instrumento) {
+            System.out.println(mostrarInstrumento.nombre);
+        }
         try {
-            for (int i = 0; i < conn.mostrarInstrumentos().size(); i++) {
-                nombre = conn.mostrarInstrumentos().get(i).nombre;
+            for (int i = 0; i < instrumento.size(); i++) {
+                nombre = instrumento.get(i).nombre;
                 _instrumento_seleccionado.addItem(nombre);
             }
         } catch (Exception e) {
@@ -254,11 +258,10 @@ public class Agregar extends javax.swing.JFrame {
             var conn = new Conector();
             ArrayList<String> tiempo = new ArrayList(Arrays.asList("Mañana", "Medio dia", "Tarde", "Tarde noche", "Noche"));
             cargar_combo_momento(tiempo);
-
+            conn.connect();
             try {
                 String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
-                conn.connect();
                 Artista artista;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
@@ -287,9 +290,9 @@ public class Agregar extends javax.swing.JFrame {
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
             var conn = new Conector();
+            conn.connect();
 
             try {
-                conn.connect();
                 Gallo gallo;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
@@ -310,9 +313,9 @@ public class Agregar extends javax.swing.JFrame {
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
             var conn = new Conector();
+            conn.connect();
 
             try {
-                conn.connect();
                 Canario canario;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
