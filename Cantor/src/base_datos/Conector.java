@@ -30,6 +30,7 @@ public class Conector {
         }
     }
     
+    /**
     public void saveAlumno(Artista artista){
         try {
             PreparedStatement st = connect.prepareStatement("insert into alumnos (Nombre, FechaNacimiento, ) values (?,?)");
@@ -41,4 +42,6 @@ public class Conector {
         }
 
     }
+     */
+    
 }
