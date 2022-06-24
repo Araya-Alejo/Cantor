@@ -30,6 +30,7 @@ public class Agregar extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         rellenarComboConductores_instrumentos(_instrumento_seleccionado);
+        cargar_combo_momento(_momento);
     }
 
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
@@ -341,8 +342,12 @@ public class Agregar extends javax.swing.JFrame {
         _momento.removeAllItems();
     }
 
-    public void cargar_combo_momento(JComboBox _momento, ArrayList<String> tiempo) {
-
+    public void cargar_combo_momento(JComboBox _momento) {
+        _momento.addItem("Mañana");
+        _momento.addItem("Medio dia");
+        _momento.addItem("Tarde");
+        _momento.addItem("Tarde noche");
+        _momento.addItem("Noche");
     }
 
     private void _LISTA_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_TIPOActionPerformed
@@ -351,25 +356,14 @@ public class Agregar extends javax.swing.JFrame {
         if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             _instrumento_seleccionado.setEnabled(true);
             btn_agregar_instrumento.setEnabled(true);
+            
         } else {
             _instrumento_seleccionado.setEnabled(false);
             btn_agregar_instrumento.setEnabled(false);
+            
         }
 
-        if (_LISTA_TIPO.getSelectedItem().equals("CANARIO") || _LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-            _momento.removeAllItems();
-
-            _momento.addItem("Mañana");
-            _momento.addItem("Medio dia");
-            _momento.addItem("Tarde");
-            _momento.addItem("Tarde noche");
-            _momento.addItem("Noche");
-
-        } else {
-            _momento.removeAllItems();
-
-            _momento.addItem("Mañana");
-        }
+        
     }//GEN-LAST:event__LISTA_TIPOActionPerformed
 
     private void ingreso_NOMBREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_NOMBREActionPerformed

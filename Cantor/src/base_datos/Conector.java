@@ -73,6 +73,17 @@ public class Conector {
         }
     }
     
+    public void saveInstrumento(Instrumento ints){
+        try {
+            PreparedStatement st = connect.prepareStatement("insert into Instrumentos (Nombre) values (?)");
+            st.setString(1, ints.nombre);
+            
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    
     public ArrayList<Artista> mostrarArtistas(){
         ArrayList<Artista> art= new ArrayList();
         ResultSet result = null;
