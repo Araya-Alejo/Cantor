@@ -46,8 +46,6 @@ public class Modificar extends javax.swing.JFrame {
         _LISTA_DE_ARTISTAS = new javax.swing.JComboBox<>();
         _ELIMINAR_ = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         modificacion_TIPO_INSTRUMENTO.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         modificacion_TIPO_INSTRUMENTO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
