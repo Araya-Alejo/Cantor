@@ -3,10 +3,14 @@ package base_datos;
 import cantor.Artista;
 import cantor.Canario;
 import cantor.Gallo;
+import cantor.Instrumento;
+import cantor.Momento;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class Conector {
 
@@ -31,7 +35,6 @@ public class Conector {
             System.err.println("Error de Cerrar base de datos");
         }
     }
-    
     
     public void saveArtista(Artista artista){
         try {
@@ -69,4 +72,74 @@ public class Conector {
             System.err.println(ex.getMessage());
         }
     }
+    
+    public ArrayList<Artista> mostrarArtistas(){
+        ArrayList<Artista> art= new ArrayList();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = connect.prepareStatement("select * from Artistas");
+            result = st.executeQuery();
+            
+            while (result.next()) {
+                Artista artista= new Artista((Instrumento)result.getObject("Instrumento"),result.getString("Nombre"), "Artista", result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
+                art.add(artista);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return art;
+    }
+    
+    public ArrayList<Gallo> mostrarGallos(){
+        ArrayList<Gallo> gallos= new ArrayList();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = connect.prepareStatement("select * from Gallos");
+            result = st.executeQuery();
+            
+            while (result.next()) {
+                Gallo gallo= new Gallo(result.getString("Nombre"), "Gallo" , result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
+                gallos.add(gallo);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return gallos;
+    }
+    
+    public ArrayList<Canario> mostrarCanarios(){
+        ArrayList<Canario>canarios= new ArrayList();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = connect.prepareStatement("select * from Canarios");
+            result = st.executeQuery();
+            
+            while (result.next()) {
+                Canario canario= new Canario(result.getString("Nombre"), "Canario" , result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
+                canarios.add(canario);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return canarios;
+    }
+    
+    public ArrayList<Instrumento> mostrarInstrumentos(){
+        ArrayList<Instrumento> instrumentos= new ArrayList();
+        ResultSet result = null;
+        try {
+            PreparedStatement st = connect.prepareStatement("select * from Instrumentos");
+            result = st.executeQuery();
+            
+            while (result.next()) {
+                Instrumento inst= new Instrumento(result.getString("Nombre"));
+                instrumentos.add(inst);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return instrumentos;
+    }
+    
+    
 }

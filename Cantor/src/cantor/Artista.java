@@ -6,10 +6,17 @@ package cantor;
 public class Artista extends SerCantor{
     public Instrumento usa;
 
-
-    public Artista(String nombre, String tipo, String fechaNacimiento) {
-        super(nombre, tipo, fechaNacimiento);
+    public Artista(Instrumento usa, String nombre, String tipo, String stringfechaN, Momento momento) {
+        super(nombre, "Artista", stringfechaN, momento);
+        this.usa = usa;
     }
+
+    
+
+    
+
+
+    
     
     
     public void cantar(){

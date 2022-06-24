@@ -14,7 +14,7 @@ public abstract class SerCantor implements PuedeCantar{
     public final LocalDate fechaNacimiento;
     public Momento cuando;
 
-    public SerCantor(String nombre, String tipo, String stringfechaN) {
+    public SerCantor(String nombre, String tipo, String stringfechaN, Momento momento) {
         this.nombre = nombre;
         this.tipo = tipo;
         int dia = Integer.valueOf(stringfechaN.substring(0, 2));
@@ -23,6 +23,7 @@ public abstract class SerCantor implements PuedeCantar{
         LocalDate fn = LocalDate.of(dia, mes, ano);
         System.out.println(fn);
         this.fechaNacimiento = fn;
+        this.cuando = momento;
     }
     
     public abstract void hacerCantar(SerCantor objSC);
