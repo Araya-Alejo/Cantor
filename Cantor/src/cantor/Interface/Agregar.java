@@ -347,7 +347,7 @@ public class Agregar extends javax.swing.JFrame {
             String nombre;
             for (int i = 0; i < tiempo.size(); i++) {
                 nombre = tiempo.get(i);
-                _instrumento_seleccionado.addItem(nombre);
+                _momento.addItem(nombre);
             }
         } catch (Exception e) {
             System.out.println("Error al cargar ComboBox\n\n" + e);
