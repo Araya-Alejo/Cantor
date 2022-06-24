@@ -6,12 +6,14 @@ package cantor.Interface;
 
 import Util.util;
 import cantor.Artista;
+import base_datos.*;
 import cantor.Canario;
 import cantor.Gallo;
 import cantor.Instrumento;
 import cantor.SerCantor;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JComboBox;
 
 /**
@@ -53,24 +55,22 @@ public class Agregar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel28 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         _LISTA_TIPO = new javax.swing.JComboBox<>();
         ingreso_LISTA_INSTRUMENTOS = new javax.swing.JComboBox<>();
-        ingreso_NOMBRE_INSTRUMENTO = new javax.swing.JTextField();
         ingreso_NOMBRE = new javax.swing.JTextField();
         btn_ingresar2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         dia = new javax.swing.JComboBox<>();
         mes = new javax.swing.JComboBox<>();
         ano = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-
-        jLabel28.setText("NOMBRE:");
+        _instrumento_seleccionado = new javax.swing.JComboBox<>();
+        btn_agregar_instrumento = new javax.swing.JButton();
+        _momento = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel26.setText("NOMBRE:");
 
@@ -99,13 +99,6 @@ public class Agregar extends javax.swing.JFrame {
             }
         });
 
-        ingreso_NOMBRE_INSTRUMENTO.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        ingreso_NOMBRE_INSTRUMENTO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingreso_NOMBRE_INSTRUMENTOActionPerformed(evt);
-            }
-        });
-
         ingreso_NOMBRE.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         ingreso_NOMBRE.setToolTipText("");
         ingreso_NOMBRE.addActionListener(new java.awt.event.ActionListener() {
@@ -129,14 +122,16 @@ public class Agregar extends javax.swing.JFrame {
 
         ano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009" }));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        _instrumento_seleccionado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
-        jButton1.setText("Agregar un nuevo instrumento");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_agregar_instrumento.setText("Agregar un nuevo instrumento");
+        btn_agregar_instrumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_agregar_instrumentoActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("Seleccionar en que momento canta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,18 +140,9 @@ public class Agregar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(116, 116, 116))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel28)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ingreso_NOMBRE_INSTRUMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(btn_ingresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(60, 60, 60)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(116, 116, 116))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -166,24 +152,32 @@ public class Agregar extends javax.swing.JFrame {
                                     .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(_LISTA_TIPO, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(16, 16, 16))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel31)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ingreso_LISTA_INSTRUMENTOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel27)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_ingresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(_momento, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3)
+                                        .addGap(25, 25, 25)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btn_agregar_instrumento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(_instrumento_seleccionado, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel26)
+                                        .addComponent(jLabel31)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ingreso_NOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(98, 98, 98)
-                                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ano, 0, 1, Short.MAX_VALUE))))
+                                        .addComponent(ingreso_LISTA_INSTRUMENTOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel27)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel26)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(ingreso_NOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(98, 98, 98)
+                                        .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ano, 0, 1, Short.MAX_VALUE)))))
                         .addGap(60, 60, 60))))
         );
         layout.setVerticalGroup(
@@ -205,29 +199,25 @@ public class Agregar extends javax.swing.JFrame {
                     .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(ingreso_LISTA_INSTRUMENTOS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(_instrumento_seleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btn_agregar_instrumento)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(ingreso_NOMBRE_INSTRUMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(_momento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_ingresar2)
-                .addGap(31, 31, 31))
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ingreso_NOMBRE_INSTRUMENTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_NOMBRE_INSTRUMENTOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ingreso_NOMBRE_INSTRUMENTOActionPerformed
 
     private void ingreso_LISTA_INSTRUMENTOSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ingreso_LISTA_INSTRUMENTOSItemStateChanged
         // TODO add your handling code here:
@@ -236,9 +226,11 @@ public class Agregar extends javax.swing.JFrame {
     private void ingreso_LISTA_INSTRUMENTOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_LISTA_INSTRUMENTOSActionPerformed
         // TODO add your handling code here:
         if (ingreso_LISTA_INSTRUMENTOS.getSelectedItem().equals("NO")) {  //User have not entered anything.
-            ingreso_NOMBRE_INSTRUMENTO.setEnabled(false);
+            _instrumento_seleccionado.setEnabled(false);
+            btn_agregar_instrumento.setEnabled(false);
         } else if (ingreso_LISTA_INSTRUMENTOS.getSelectedItem().equals("SI")) {
-            ingreso_NOMBRE_INSTRUMENTO.setEnabled(true);
+            _instrumento_seleccionado.setEnabled(true);
+            btn_agregar_instrumento.setEnabled(true);
         }
 
     }//GEN-LAST:event_ingreso_LISTA_INSTRUMENTOSActionPerformed
@@ -250,62 +242,102 @@ public class Agregar extends javax.swing.JFrame {
             util.MENSAJE("Porfavor ingrese el valor faltante.");
             ingreso_NOMBRE.requestFocusInWindow();
         } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+            
+            ArrayList<String> tiempo = new ArrayList(Arrays.asList("Mañana", "Medio dia", "Tarde", "Tarde noche", "Noche"));
+            cargar_combo(tiempo);
+            
             String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
-            var artista = new Artista(ingreso_NOMBRE.getText(), String.valueOf(_LISTA_TIPO.getSelectedItem()), nacimiento);
+            
+            var conn = new Conector();
+            
+            try {
+                
+                conn.connect();
+                Artista artista;
+                if (String.valueOf(ingreso_LISTA_INSTRUMENTOS.getSelectedItem()).equals("SI")) {
+                    artista = new Artista(ingreso_NOMBRE.getText(),nacimiento,String.valueOf(_momento.getSelectedItem()) ,String.valueOf(_instrumento_seleccionado.getSelectedItem()));   
+                } else {
+                    artista = new Artista(ingreso_NOMBRE.getText(),nacimiento,String.valueOf(_momento.getSelectedItem()) ,"Mi voz");
+                }
+                
+                conn.saveArtista(artista);
+                borrar_combo();
+            } catch (Exception e) {
+                util.MENSAJE("Error al guardar el artista" + e);
+            } finally {
+                conn.close();
+            }
 
-            var instrumento = new Instrumento();
-            instrumento.nombre = ingreso_NOMBRE_INSTRUMENTO.getText();
-
-            artista.usa.add(instrumento);
-
-//            artista.canto = ingreso_CANTAR.getText();
-//            System.out.println("A");
-//            SerCantor.artistas.add(artista);
-//        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
-//            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
-//            var gallo = new Gallo(ingreso_NOMBRE.getText(), String.valueOf(_LISTA_TIPO.getSelectedItem()), nacimiento);
-//            gallo.nombre = ingreso_NOMBRE.getText();
-//            gallo.tipo = ingreso_TIPO.getText();
-//            System.out.println("G");
-//            SerCantor.gallo.add(gallo);
-//        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
-//            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
-//            var canario = new Canario(ingreso_NOMBRE.getText(), String.valueOf(_LISTA_TIPO.getSelectedItem()), nacimiento);
-//            System.out.println("C");
-//            SerCantor.canario.add(canario);
-
-//            artista.usa[0] = instrumento;
-//
-//            artista.canto = ingreso_CANTAR.getText();
-//            System.out.println("A");
-//            SerCantor.artistas.add(artista);
-//        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
-//            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
-//            var gallo = new Gallo(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
-//            gallo.nombre = ingreso_NOMBRE.getText();
-//            gallo.tipo = ingreso_TIPO.getText();
-//            System.out.println("G");
-//            SerCantor.gallo.add(gallo);
-//        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
-//            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
-//            var canario = new Canario(ingreso_NOMBRE.getText(), ingreso_TIPO.getText(), nacimiento);
-//            System.out.println("C");
-//            SerCantor.canario.add(canario);
+            
+        } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
+            
+            ArrayList<String> tiempo = new ArrayList(Arrays.asList("Mañana"));
+            cargar_combo(tiempo);
+            
+            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+            
+            var conn = new Conector();
+            
+            try {
+                conn.connect();
+                Gallo gallo;
+                gallo = new Gallo(ingreso_NOMBRE.getText(),nacimiento, String.valueOf(_momento.getSelectedItem()));
+                
+                conn.saveGallo(gallo);
+                borrar_combo();
+            } catch (Exception e) {
+                util.MENSAJE("Error al guardar el gallo" + e);
+            } finally {
+                conn.close();
+            }
+            
+            
+        } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
+            ArrayList<String> tiempo = new ArrayList(Arrays.asList("Mañana", "Medio dia", "Tarde", "Tarde noche", "Noche"));
+            cargar_combo(tiempo);
+            
+            String nacimiento = String.valueOf(dia.getSelectedItem())+ String.valueOf(mes.getSelectedItem())+ String.valueOf(ano.getSelectedItem());
+            
+            var conn = new Conector();
+            
+            try {
+                conn.connect();
+                Canario canario;
+                canario = new Canario(ingreso_NOMBRE.getText(),nacimiento, String.valueOf(_momento.getSelectedItem()));
+                
+                conn.saveCanario(canario);
+                borrar_combo();
+            } catch (Exception e) {
+                util.MENSAJE("Error al guardar el canario" + e);
+            } finally {
+                conn.close();
+            }
 
         }
 
-        ingreso_NOMBRE.setText("");
-        ingreso_NOMBRE_INSTRUMENTO.setText("");
-
     }//GEN-LAST:event_btn_ingresar2ActionPerformed
+
+    public void borrar_combo() {
+        _momento.removeAllItems();
+    }
+
+    public void cargar_combo(ArrayList<String> tiempo) {
+        
+        for (String string : tiempo) 
+        {
+            _momento.addItem(string);
+        }
+    }
 
     private void _LISTA_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_TIPOActionPerformed
         // TODO add your handling code here:
 
         if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-            ingreso_NOMBRE_INSTRUMENTO.setEnabled(true);
+            _instrumento_seleccionado.setEnabled(true);
+            btn_agregar_instrumento.setEnabled(true);
         } else {
-            ingreso_NOMBRE_INSTRUMENTO.setEnabled(false);
+            _instrumento_seleccionado.setEnabled(false);
+            btn_agregar_instrumento.setEnabled(false);
         }
     }//GEN-LAST:event__LISTA_TIPOActionPerformed
 
@@ -313,12 +345,12 @@ public class Agregar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ingreso_NOMBREActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
         // TODO add your handling code here:
         var elegir = new Agregar_instrumento();
         elegir.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,19 +389,19 @@ public class Agregar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> _LISTA_TIPO;
+    private javax.swing.JComboBox<String> _instrumento_seleccionado;
+    private javax.swing.JComboBox<String> _momento;
     private javax.swing.JComboBox<String> ano;
+    private javax.swing.JButton btn_agregar_instrumento;
     private javax.swing.JButton btn_ingresar2;
     private javax.swing.JComboBox<String> dia;
     private javax.swing.JComboBox<String> ingreso_LISTA_INSTRUMENTOS;
     private javax.swing.JTextField ingreso_NOMBRE;
-    private javax.swing.JTextField ingreso_NOMBRE_INSTRUMENTO;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JComboBox<String> mes;
     // End of variables declaration//GEN-END:variables
