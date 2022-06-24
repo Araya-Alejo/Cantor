@@ -70,8 +70,6 @@ public class Agregar extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel28.setText("NOMBRE:");
 
         jLabel26.setText("NOMBRE:");

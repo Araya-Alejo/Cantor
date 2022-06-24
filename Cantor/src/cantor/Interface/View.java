@@ -39,7 +39,7 @@ public class View extends javax.swing.JFrame {
         btn_modificar = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel1.setText("ARTISTAS");
@@ -114,7 +114,7 @@ public class View extends javax.swing.JFrame {
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         // TODO add your handling code here:
 
-        util.MENSAJE("Se a cerrado correctamente");
+        util.MENSAJE("Se a cerrado correctamente y los datos han sido guardados");
         System.exit(0);
     }//GEN-LAST:event_btn_salirActionPerformed
 
