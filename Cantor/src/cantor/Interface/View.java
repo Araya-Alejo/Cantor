@@ -91,7 +91,7 @@ public class View extends javax.swing.JFrame {
                                 .addGap(36, 36, 36)
                                 .addComponent(btn_modificar))
                             .addComponent(btn_salir))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +105,7 @@ public class View extends javax.swing.JFrame {
                     .addComponent(btn_ingresar))
                 .addGap(88, 88, 88)
                 .addComponent(btn_salir)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
