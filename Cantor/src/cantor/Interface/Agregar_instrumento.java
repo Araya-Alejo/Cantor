@@ -84,7 +84,7 @@ public class Agregar_instrumento extends javax.swing.JFrame {
         // TODO add your handling code here:
         Conector conn = new Conector();
         conn.connect();
-        Instrumento instrumento = new Instrumento(_instrumento.getName());
+        Instrumento instrumento = new Instrumento(_instrumento.getText());
         conn.saveInstrumento(instrumento);
         conn.close();
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
