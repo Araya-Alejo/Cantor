@@ -264,13 +264,6 @@ public class Agregar extends javax.swing.JFrame {
             ingreso_NOMBRE.requestFocusInWindow();
         } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             var conn = new Conector();
-            ArrayList<String> tiempo = new ArrayList();
-            tiempo.add("Mañana");
-            tiempo.add("Medio dia");
-            tiempo.add("Tarde");
-            tiempo.add("Tarde noche");
-            tiempo.add("Noche");
-            cargar_combo_momento(_momento, tiempo);
             conn.connect();
 
             try {
@@ -297,10 +290,6 @@ public class Agregar extends javax.swing.JFrame {
             }
 
         } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
-
-            ArrayList<String> tiempo = new ArrayList();
-            tiempo.add("Mañana");
-            cargar_combo_momento(_momento, tiempo);
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
