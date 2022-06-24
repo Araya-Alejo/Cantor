@@ -45,9 +45,11 @@ public class Conector {
             st.setString(3, String.valueOf(artista.cuando));
             st.setString(4, String.valueOf(artista.usa));
             st.execute();
-            close();
+            
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        } finally{
+            close();
         }
     }
     
@@ -59,9 +61,10 @@ public class Conector {
             st.setString(2, String.valueOf(gallo.fechaNacimiento));
             st.setString(3, String.valueOf(gallo.cuando));
             st.execute();
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
@@ -73,9 +76,10 @@ public class Conector {
             st.setString(2, String.valueOf(canario.fechaNacimiento));
             st.setString(3, String.valueOf(canario.cuando));
             st.execute();
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
@@ -87,9 +91,10 @@ public class Conector {
             
             st.execute();
             System.out.println("Se carga el instrumento correctamente");
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
@@ -105,9 +110,10 @@ public class Conector {
                 Artista artista= new Artista((Instrumento)result.getObject("Instrumento"),result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 art.add(artista);
             }
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
         return art;
     }
@@ -124,9 +130,10 @@ public class Conector {
                 Gallo gallo= new Gallo(result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 gallos.add(gallo);
             }
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
         return gallos;
     }
@@ -143,9 +150,10 @@ public class Conector {
                 Canario canario= new Canario(result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 canarios.add(canario);
             }
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
         return canarios;
     }
@@ -162,9 +170,10 @@ public class Conector {
                 Instrumento inst= new Instrumento(result.getString("NombreInstrumento"));
                 instrumentos.add(inst);
             }
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
         return instrumentos;
     }
@@ -175,9 +184,10 @@ public class Conector {
             PreparedStatement st = connect.prepareStatement("delete from Artistas where Nombre=?");
             st.setString(1, cadena);
             st.execute();
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
@@ -187,9 +197,10 @@ public class Conector {
             PreparedStatement st = connect.prepareStatement("delete from Gallos where Nombre=?");
             st.setString(1, cadena);
             st.execute();
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
@@ -199,9 +210,10 @@ public class Conector {
             PreparedStatement st = connect.prepareStatement("delete from Canarios where Nombre=?");
             st.setString(1, cadena);
             st.execute();
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
@@ -213,9 +225,10 @@ public class Conector {
             st.setString(2, String.valueOf(instr));
             st.setString(3, cadena);
             st.execute();
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
@@ -227,9 +240,10 @@ public class Conector {
             st.setString(2, String.valueOf(instr));
             st.setString(3, cadena);
             st.execute();
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
@@ -241,9 +255,10 @@ public class Conector {
             st.setString(2, String.valueOf(instr));
             st.setString(3, cadena);
             st.execute();
-            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }finally{
+            close();
         }
     }
     
