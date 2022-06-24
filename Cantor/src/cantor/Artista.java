@@ -1,10 +1,10 @@
 package cantor;
 
 
-import java.util.ArrayList;
+
 
 public class Artista extends SerCantor{
-    public ArrayList<Instrumento> usa;
+    public Instrumento usa;
 
 
     public Artista(String nombre, String tipo, String fechaNacimiento) {
