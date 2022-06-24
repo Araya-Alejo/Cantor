@@ -35,7 +35,7 @@ public class Agregar extends javax.swing.JFrame {
 
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
         Conector conn = new Conector();
-        conn.connect();
+        
         ArrayList<Instrumento> instrumento = new ArrayList();
         instrumento = conn.mostrarInstrumentos();
 
@@ -52,8 +52,6 @@ public class Agregar extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             System.out.println("Error al cargar ComboBox\n\n" + e);
-        } finally {
-            conn.close();
         }
 
     }
@@ -267,7 +265,7 @@ public class Agregar extends javax.swing.JFrame {
             ingreso_NOMBRE.requestFocusInWindow();
         } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             var conn = new Conector();
-            conn.connect();
+            
 
             try {
                 String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
@@ -288,8 +286,6 @@ public class Agregar extends javax.swing.JFrame {
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el artista" + e);
-            } finally {
-                conn.close();
             }
 
         } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
@@ -297,7 +293,7 @@ public class Agregar extends javax.swing.JFrame {
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
             var conn = new Conector();
-            conn.connect();
+            
 
             try {
                 Gallo gallo;
@@ -309,8 +305,6 @@ public class Agregar extends javax.swing.JFrame {
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el gallo" + e);
-            } finally {
-                conn.close();
             }
 
         } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
@@ -318,7 +312,7 @@ public class Agregar extends javax.swing.JFrame {
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
             var conn = new Conector();
-            conn.connect();
+            
 
             try {
                 Canario canario;
@@ -330,8 +324,6 @@ public class Agregar extends javax.swing.JFrame {
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el canario" + e);
-            } finally {
-                conn.close();
             }
 
         }

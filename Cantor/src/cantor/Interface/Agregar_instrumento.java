@@ -87,14 +87,14 @@ public class Agregar_instrumento extends javax.swing.JFrame {
         // TODO add your handling code here:
         Conector conn = new Conector();
         try {
-            conn.connect();
+            
             Instrumento instrumento = new Instrumento(_instrumento.getText());
             conn.saveInstrumento(instrumento);
             util.MENSAJE("Instrumento guardado");
         } catch (Exception e) {
             System.out.println("error" + e);
         } finally {
-            conn.close();
+            
         }
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
 
