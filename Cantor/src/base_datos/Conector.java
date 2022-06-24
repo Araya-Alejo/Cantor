@@ -79,6 +79,7 @@ public class Conector {
             st.setString(1, String.valueOf(ints));
             
             st.execute();
+            System.out.println("Se carga el instrumento correctamente");
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }

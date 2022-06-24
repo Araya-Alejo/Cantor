@@ -84,11 +84,19 @@ public class Agregar_instrumento extends javax.swing.JFrame {
     private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
         // TODO add your handling code here:
         Conector conn = new Conector();
-        conn.connect();
-        Instrumento instrumento = new Instrumento(_instrumento.getText());
-        conn.saveInstrumento(instrumento);
-        util.MENSAJE("Instrumento guardado");
-        conn.close();
+        try{
+            
+            conn.connect();
+            Instrumento instrumento = new Instrumento(_instrumento.getText());
+            conn.saveInstrumento(instrumento);
+            util.MENSAJE("Instrumento guardado");
+            
+            
+        }catch(Exception e){
+            System.out.println("error"+e);
+        }finally{
+            conn.close();
+        }
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
 
     /**
