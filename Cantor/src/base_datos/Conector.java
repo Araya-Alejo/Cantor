@@ -76,7 +76,7 @@ public class Conector {
     public void saveInstrumento(Instrumento ints){
         try {
             PreparedStatement st = connect.prepareStatement("insert into Instrumentos (Nombre) values (?)");
-            st.setString(1, ints.nombre);
+            st.setString(1, String.valueOf(ints));
             
             st.execute();
         } catch (SQLException ex) {
