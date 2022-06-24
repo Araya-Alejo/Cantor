@@ -5,6 +5,7 @@
 package cantor.Interface;
 import cantor.Instrumento;
 import base_datos.*;
+import Util.util;
 /**
  *
  * @author alejo
@@ -86,6 +87,7 @@ public class Agregar_instrumento extends javax.swing.JFrame {
         conn.connect();
         Instrumento instrumento = new Instrumento(_instrumento.getText());
         conn.saveInstrumento(instrumento);
+        util.MENSAJE("Instrumento guardado");
         conn.close();
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
 
