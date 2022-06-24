@@ -52,6 +52,7 @@ public class Agregar extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Error al cargar ComboBox\n\n" + e);
         }
+        conn.close();
     }
 
     /**
