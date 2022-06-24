@@ -3,9 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package cantor.Interface;
+
 import cantor.Instrumento;
 import base_datos.*;
 import Util.util;
+
 /**
  *
  * @author alejo
@@ -84,17 +86,14 @@ public class Agregar_instrumento extends javax.swing.JFrame {
     private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
         // TODO add your handling code here:
         Conector conn = new Conector();
-        try{
-            
+        try {
             conn.connect();
             Instrumento instrumento = new Instrumento(_instrumento.getText());
             conn.saveInstrumento(instrumento);
             util.MENSAJE("Instrumento guardado");
-            
-            
-        }catch(Exception e){
-            System.out.println("error"+e);
-        }finally{
+        } catch (Exception e) {
+            System.out.println("error" + e);
+        } finally {
             conn.close();
         }
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
