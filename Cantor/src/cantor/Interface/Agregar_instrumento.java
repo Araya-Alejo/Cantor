@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package cantor.Interface;
-
+import cantor.Instrumento;
+import base_datos.*;
 /**
  *
  * @author alejo
@@ -29,12 +30,17 @@ public class Agregar_instrumento extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        _instrumento = new javax.swing.JTextField();
+        btn_agregar_instrumento = new javax.swing.JButton();
 
         jLabel1.setText("Agregar instrumentos a la base de datos");
 
-        jButton1.setText("Agregar instrumento");
+        btn_agregar_instrumento.setText("Agregar instrumento");
+        btn_agregar_instrumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregar_instrumentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -44,8 +50,8 @@ public class Agregar_instrumento extends javax.swing.JFrame {
                 .addContainerGap(105, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(_instrumento)
+                    .addComponent(btn_agregar_instrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(84, 84, 84))
         );
         jPanel1Layout.setVerticalGroup(
@@ -54,9 +60,9 @@ public class Agregar_instrumento extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(_instrumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(jButton1)
+                .addComponent(btn_agregar_instrumento)
                 .addContainerGap(93, Short.MAX_VALUE))
         );
 
@@ -73,6 +79,15 @@ public class Agregar_instrumento extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
+        // TODO add your handling code here:
+        Conector conn = new Conector();
+        conn.connect();
+        Instrumento instrumento = new Instrumento(_instrumento.getName());
+        conn.saveInstrumento(instrumento);
+        conn.close();
+    }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,9 +125,9 @@ public class Agregar_instrumento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField _instrumento;
+    private javax.swing.JButton btn_agregar_instrumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

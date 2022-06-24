@@ -39,8 +39,8 @@
                   <EmptySpace pref="105" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel1" max="32767" attributes="0"/>
-                      <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                      <Component id="_instrumento" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_agregar_instrumento" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
               </Group>
@@ -52,9 +52,9 @@
                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="_instrumento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_agregar_instrumento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="93" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -66,12 +66,15 @@
             <Property name="text" type="java.lang.String" value="Agregar instrumentos a la base de datos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="_instrumento">
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btn_agregar_instrumento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar instrumento"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_agregar_instrumentoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
