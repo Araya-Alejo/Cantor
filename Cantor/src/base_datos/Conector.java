@@ -38,12 +38,14 @@ public class Conector {
     
     public void saveArtista(Artista artista){
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("insert into Artistas (Nombre, FechaNacimiento, Momento, Instrumento) values (?,?,?,?)");
             st.setString(1, artista.nombre);
             st.setString(2, String.valueOf(artista.fechaNacimiento));
             st.setString(3, String.valueOf(artista.cuando));
             st.setString(4, String.valueOf(artista.usa));
             st.execute();
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -51,11 +53,13 @@ public class Conector {
     
     public void saveGallo(Gallo gallo){
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("insert into Gallos (Nombre, FechaNacimiento, Momento) values (?,?,?)");
             st.setString(1, gallo.nombre);
             st.setString(2, String.valueOf(gallo.fechaNacimiento));
             st.setString(3, String.valueOf(gallo.cuando));
             st.execute();
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -63,11 +67,13 @@ public class Conector {
     
     public void saveCanario(Canario canario){
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("insert into Canarios (Nombre, FechaNacimiento, Momento) values (?,?,?)");
             st.setString(1, canario.nombre);
             st.setString(2, String.valueOf(canario.fechaNacimiento));
             st.setString(3, String.valueOf(canario.cuando));
             st.execute();
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -75,11 +81,13 @@ public class Conector {
     
     public void saveInstrumento(Instrumento ints){
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("insert into Instrumentos (Nombre) values (?)");
             st.setString(1, String.valueOf(ints));
             
             st.execute();
             System.out.println("Se carga el instrumento correctamente");
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -89,6 +97,7 @@ public class Conector {
         ArrayList<Artista> art= new ArrayList();
         ResultSet result = null;
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("select * from Artistas");
             result = st.executeQuery();
             
@@ -96,6 +105,7 @@ public class Conector {
                 Artista artista= new Artista((Instrumento)result.getObject("Instrumento"),result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 art.add(artista);
             }
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -106,6 +116,7 @@ public class Conector {
         ArrayList<Gallo> gallos= new ArrayList();
         ResultSet result = null;
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("select * from Gallos");
             result = st.executeQuery();
             
@@ -113,6 +124,7 @@ public class Conector {
                 Gallo gallo= new Gallo(result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 gallos.add(gallo);
             }
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -123,6 +135,7 @@ public class Conector {
         ArrayList<Canario>canarios= new ArrayList();
         ResultSet result = null;
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("select * from Canarios");
             result = st.executeQuery();
             
@@ -130,6 +143,7 @@ public class Conector {
                 Canario canario= new Canario(result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 canarios.add(canario);
             }
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -140,6 +154,7 @@ public class Conector {
         ArrayList<Instrumento> instrumentos= new ArrayList();
         ResultSet result = null;
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("select * from Instrumentos");
             result = st.executeQuery();
             
@@ -147,6 +162,7 @@ public class Conector {
                 Instrumento inst= new Instrumento(result.getString("NombreInstrumento"));
                 instrumentos.add(inst);
             }
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -155,9 +171,11 @@ public class Conector {
     
     public void deleteArtista(String cadena){
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("delete from Artistas where Nombre=?");
             st.setString(1, cadena);
             st.execute();
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -165,9 +183,11 @@ public class Conector {
     
     public void deleteGallo(String cadena){
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("delete from Gallos where Nombre=?");
             st.setString(1, cadena);
             st.execute();
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -175,9 +195,53 @@ public class Conector {
     
     public void deleteCanario(String cadena){
         try {
+            connect();
             PreparedStatement st = connect.prepareStatement("delete from Canarios where Nombre=?");
             st.setString(1, cadena);
             st.execute();
+            close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    public void editArtista(String cadena, Instrumento instr, Momento momento){
+        try {
+            connect();
+            PreparedStatement st = connect.prepareStatement("update Artistas set (Momento, Instrumento) values (?,?) where Nombre=?");
+            st.setString(1, String.valueOf(momento));
+            st.setString(2, String.valueOf(instr));
+            st.setString(3, cadena);
+            st.execute();
+            close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    public void editGallo(String cadena, Instrumento instr, Momento momento){
+        try {
+            connect();
+            PreparedStatement st = connect.prepareStatement("update Gallos set (Momento, Instrumento) values (?,?) where Nombre=?");
+            st.setString(1, String.valueOf(momento));
+            st.setString(2, String.valueOf(instr));
+            st.setString(3, cadena);
+            st.execute();
+            close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    public void editCanario(String cadena, Instrumento instr, Momento momento){
+        try {
+            connect();
+            PreparedStatement st = connect.prepareStatement("update Canarios set (Momento, Instrumento) values (?,?) where Nombre=?");
+            st.setString(1, String.valueOf(momento));
+            st.setString(2, String.valueOf(instr));
+            st.setString(3, cadena);
+            st.execute();
+            close();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
