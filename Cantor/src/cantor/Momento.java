@@ -16,5 +16,10 @@ public class Momento {
     public String horario(){
         return "hola";
     }
+
+    public Momento() {
+    }
+    
+    
     
 }

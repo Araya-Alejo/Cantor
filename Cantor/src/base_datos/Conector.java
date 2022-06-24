@@ -132,7 +132,7 @@ public class Conector {
             result = st.executeQuery();
             
             while (result.next()) {
-                Instrumento inst= new Instrumento(result.getString("Nombre"));
+                Instrumento inst= new Instrumento(result.getString("NombreInstrumento"));
                 instrumentos.add(inst);
             }
         } catch (SQLException ex) {
@@ -145,9 +145,6 @@ public class Conector {
         try {
             PreparedStatement st = connect.prepareStatement("delete Artistas where Nombre=?");
             st.setString(1, artista.nombre);
-            st.setString(2, String.valueOf(artista.fechaNacimiento));
-            st.setString(3, String.valueOf(artista.cuando));
-            st.setString(4, String.valueOf(artista.usa));
             st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
