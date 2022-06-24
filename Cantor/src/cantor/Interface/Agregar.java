@@ -260,7 +260,7 @@ public class Agregar extends javax.swing.JFrame {
         } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             var conn = new Conector();
             ArrayList<String> tiempo = new ArrayList(Arrays.asList("Mañana", "Medio dia", "Tarde", "Tarde noche", "Noche"));
-            cargar_combo_momento(tiempo);
+            cargar_combo_momento(_momento, tiempo);
             conn.connect();
 
             try {
@@ -289,7 +289,7 @@ public class Agregar extends javax.swing.JFrame {
         } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
 
             ArrayList<String> tiempo = new ArrayList(Arrays.asList("Mañana"));
-            cargar_combo_momento(tiempo);
+            cargar_combo_momento(_momento, tiempo);
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
@@ -312,7 +312,7 @@ public class Agregar extends javax.swing.JFrame {
 
         } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
             ArrayList<String> tiempo = new ArrayList(Arrays.asList("Mañana", "Medio dia", "Tarde", "Tarde noche", "Noche"));
-            cargar_combo_momento(tiempo);
+            cargar_combo_momento(_momento, tiempo);
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
@@ -341,7 +341,7 @@ public class Agregar extends javax.swing.JFrame {
         _momento.removeAllItems();
     }
 
-    public void cargar_combo_momento(ArrayList<String> tiempo) {
+    public void cargar_combo_momento(JComboBox _momento, ArrayList<String> tiempo) {
         _momento.removeAllItems();
         try {
             String nombre;
