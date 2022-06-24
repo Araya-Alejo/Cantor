@@ -5,7 +5,7 @@ package cantor;
 
 public class Gallo extends SerCantor{
 
-    public Gallo(String nombre, String tipo, String stringfechaN, Momento momento) {
+    public Gallo(String nombre, String stringfechaN, Momento momento) {
         super(nombre, "Gallo", stringfechaN, momento);
     }
 

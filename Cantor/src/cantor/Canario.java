@@ -4,8 +4,8 @@ package cantor;
 
 public class Canario extends SerCantor{
 
-    public Canario(String nombre, String tipo, String stringfechaN, Momento momento) {
-        super(nombre, tipo, stringfechaN, momento);
+    public Canario(String nombre, String stringfechaN, Momento momento) {
+        super(nombre, "Canario", stringfechaN, momento);
     }
     
     

@@ -6,7 +6,7 @@ package cantor;
 public class Artista extends SerCantor{
     public Instrumento usa;
 
-    public Artista(Instrumento usa, String nombre, String tipo, String stringfechaN, Momento momento) {
+    public Artista(Instrumento usa, String nombre, String stringfechaN, Momento momento) {
         super(nombre, "Artista", stringfechaN, momento);
         this.usa = usa;
     }

@@ -81,7 +81,7 @@ public class Conector {
             result = st.executeQuery();
             
             while (result.next()) {
-                Artista artista= new Artista((Instrumento)result.getObject("Instrumento"),result.getString("Nombre"), "Artista", result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
+                Artista artista= new Artista((Instrumento)result.getObject("Instrumento"),result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 art.add(artista);
             }
         } catch (SQLException ex) {
@@ -98,7 +98,7 @@ public class Conector {
             result = st.executeQuery();
             
             while (result.next()) {
-                Gallo gallo= new Gallo(result.getString("Nombre"), "Gallo" , result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
+                Gallo gallo= new Gallo(result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 gallos.add(gallo);
             }
         } catch (SQLException ex) {
@@ -115,7 +115,7 @@ public class Conector {
             result = st.executeQuery();
             
             while (result.next()) {
-                Canario canario= new Canario(result.getString("Nombre"), "Canario" , result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
+                Canario canario= new Canario(result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
                 canarios.add(canario);
             }
         } catch (SQLException ex) {
@@ -141,5 +141,16 @@ public class Conector {
         return instrumentos;
     }
     
-    
+    public void deleteArtista(Artista artista){
+        try {
+            PreparedStatement st = connect.prepareStatement("delete Artistas where Nombre=?");
+            st.setString(1, artista.nombre);
+            st.setString(2, String.valueOf(artista.fechaNacimiento));
+            st.setString(3, String.valueOf(artista.cuando));
+            st.setString(4, String.valueOf(artista.usa));
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
 }
