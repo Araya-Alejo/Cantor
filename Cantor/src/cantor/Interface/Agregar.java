@@ -51,8 +51,10 @@ public class Agregar extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             System.out.println("Error al cargar ComboBox\n\n" + e);
+        } finally {
+            conn.close();
         }
-        conn.close();
+
     }
 
     /**
@@ -260,6 +262,7 @@ public class Agregar extends javax.swing.JFrame {
             ArrayList<String> tiempo = new ArrayList(Arrays.asList("Mañana", "Medio dia", "Tarde", "Tarde noche", "Noche"));
             cargar_combo_momento(tiempo);
             conn.connect();
+
             try {
                 String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
@@ -339,10 +342,15 @@ public class Agregar extends javax.swing.JFrame {
     }
 
     public void cargar_combo_momento(ArrayList<String> tiempo) {
-
-        for (String string : tiempo) {
-            _momento.addItem(string);
+        _momento.removeAllItems();
+        try {
+            for (String string : tiempo) {
+                _momento.addItem(string);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cargar ComboBox\n\n" + e);
         }
+
     }
 
     private void _LISTA_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_TIPOActionPerformed
