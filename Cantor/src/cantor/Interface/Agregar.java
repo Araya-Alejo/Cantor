@@ -364,6 +364,20 @@ public class Agregar extends javax.swing.JFrame {
             _instrumento_seleccionado.setEnabled(false);
             btn_agregar_instrumento.setEnabled(false);
         }
+        
+        if (_LISTA_TIPO.getSelectedItem().equals("CANARIO") || _LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+            ArrayList<String> tiempo = new ArrayList();
+            tiempo.add("Mañana");
+            tiempo.add("Medio dia");
+            tiempo.add("Tarde");
+            tiempo.add("Tarde noche");
+            tiempo.add("Noche");
+            cargar_combo_momento(_momento, tiempo);
+        } else {
+            ArrayList<String> tiempo = new ArrayList();
+            tiempo.add("Mañana");
+            cargar_combo_momento(_momento, tiempo);
+        }
     }//GEN-LAST:event__LISTA_TIPOActionPerformed
 
     private void ingreso_NOMBREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_NOMBREActionPerformed
@@ -385,19 +399,7 @@ public class Agregar extends javax.swing.JFrame {
 
     private void _LISTA_TIPOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__LISTA_TIPOItemStateChanged
         // TODO add your handling code here:
-        if (_LISTA_TIPO.getSelectedItem().equals("CANARIO") || _LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-            ArrayList<String> tiempo = new ArrayList();
-            tiempo.add("Mañana");
-            tiempo.add("Medio dia");
-            tiempo.add("Tarde");
-            tiempo.add("Tarde noche");
-            tiempo.add("Noche");
-            cargar_combo_momento(_momento, tiempo);
-        } else {
-            ArrayList<String> tiempo = new ArrayList();
-            tiempo.add("Mañana");
-            cargar_combo_momento(_momento, tiempo);
-        }
+        
         
         
     }//GEN-LAST:event__LISTA_TIPOItemStateChanged
