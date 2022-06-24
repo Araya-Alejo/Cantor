@@ -141,13 +141,35 @@ public class Conector {
         return instrumentos;
     }
     
-    public void deleteArtista(Artista artista){
+    public void deleteArtista(String cadena){
         try {
-            PreparedStatement st = connect.prepareStatement("delete Artistas where Nombre=?");
-            st.setString(1, artista.nombre);
+            PreparedStatement st = connect.prepareStatement("delete from Artistas where Nombre=?");
+            st.setString(1, cadena);
             st.execute();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
+    
+    public void deleteGallo(String cadena){
+        try {
+            PreparedStatement st = connect.prepareStatement("delete from Gallos where Nombre=?");
+            st.setString(1, cadena);
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    public void deleteCanario(String cadena){
+        try {
+            PreparedStatement st = connect.prepareStatement("delete from Canarios where Nombre=?");
+            st.setString(1, cadena);
+            st.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    
 }
