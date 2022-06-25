@@ -41,9 +41,6 @@ public class Modificar extends javax.swing.JFrame {
         String nombre;
         _instrumento_seleccionado.removeAllItems();
 
-        for (Instrumento mostrarInstrumento : instrumento) {
-            System.out.println(mostrarInstrumento.nombre);
-        }
         try {
             for (int i = 0; i < instrumento.size(); i++) {
                 nombre = instrumento.get(i).nombre;
