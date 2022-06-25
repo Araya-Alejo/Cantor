@@ -39,7 +39,7 @@ public class Agregar extends javax.swing.JFrame {
             Conector conn = new Conector();
 
             ArrayList<Instrumento> instrumento = new ArrayList();
-            instrumento = conn.
+            instrumento = conn.getGestorInstrumento().getDatos();
 
             String nombre;
             _instrumento_seleccionado.removeAllItems();
@@ -284,7 +284,8 @@ public class Agregar extends javax.swing.JFrame {
                     artista = new Artista(instrumento, ingreso_NOMBRE.getText(), nacimiento, momento);
                 }
 
-                conn.saveArtista(artista);
+                conn.getGestorArtista().guardarDato(artista);
+                
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el artista" + e);
@@ -303,7 +304,7 @@ public class Agregar extends javax.swing.JFrame {
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
                 gallo = new Gallo(ingreso_NOMBRE.getText(), nacimiento, momento);
 
-                conn.saveGallo(gallo);
+                conn.getGestorGallo().guardarDato(gallo);
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el gallo" + e);
@@ -322,7 +323,7 @@ public class Agregar extends javax.swing.JFrame {
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
                 canario = new Canario(ingreso_NOMBRE.getText(), nacimiento, momento);
 
-                conn.saveCanario(canario);
+                conn.getGestorCanario().guardarDato(canario);
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el canario" + e);
