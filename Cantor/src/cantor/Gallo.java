@@ -1,9 +1,11 @@
 package cantor;
 
+import java.io.Serializable;
 
 
 
-public class Gallo extends SerCantor{
+
+public class Gallo extends SerCantor implements Serializable{
 
     public Gallo(String nombre, String stringfechaN, Momento momento) {
         super(nombre, "Gallo", stringfechaN, momento);

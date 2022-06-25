@@ -1,8 +1,10 @@
 package cantor;
 
+import java.io.Serializable;
 
 
-public class Canario extends SerCantor{
+
+public class Canario extends SerCantor implements Serializable{
 
     public Canario(String nombre, String stringfechaN, Momento momento) {
         super(nombre, "Canario", stringfechaN, momento);

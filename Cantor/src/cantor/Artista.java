@@ -1,9 +1,11 @@
 package cantor;
 
+import java.io.Serializable;
 
 
 
-public class Artista extends SerCantor{
+
+public class Artista extends SerCantor implements Serializable{
     public Instrumento usa;
 
     public Artista(Instrumento usa, String nombre, String stringfechaN, Momento momento) {

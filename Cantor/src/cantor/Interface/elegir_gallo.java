@@ -25,15 +25,15 @@ public class elegir_gallo extends javax.swing.JFrame {
     }
 
     public void rellenarComboConductores_instrumentos(JComboBox _gallo) {
-        Conector conn = new Conector();
-
-        ArrayList<Gallo> gallos = new ArrayList();
-        gallos = conn.mostrarGallos();
-
-        String nombre;
-        _gallo.removeAllItems();
 
         try {
+            Conector conn = new Conector();
+
+            ArrayList<Gallo> gallos = new ArrayList();
+            gallos = conn.mostrarGallos();
+
+            String nombre;
+            _gallo.removeAllItems();
             for (int i = 0; i < gallos.size(); i++) {
                 nombre = gallos.get(i).nombre;
                 _gallo.addItem(nombre);

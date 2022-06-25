@@ -3,12 +3,13 @@ package cantor;
 
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import java.time.Period;
 
 
-public abstract class SerCantor implements PuedeCantar{
+public abstract class SerCantor implements PuedeCantar, Serializable{
     public final String nombre;
     public String tipo;
     public final LocalDate fechaNacimiento;

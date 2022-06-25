@@ -25,15 +25,15 @@ public class elegir_canario extends javax.swing.JFrame {
     }
 
     public void rellenarComboConductores_instrumentos(JComboBox _canario) {
-        Conector conn = new Conector();
-
-        ArrayList<Canario> canarios = new ArrayList();
-        canarios = conn.mostrarCanarios();
-
-        String nombre;
-        _canario.removeAllItems();
 
         try {
+            Conector conn = new Conector();
+
+            ArrayList<Canario> canarios = new ArrayList();
+            canarios = conn.mostrarCanarios();
+
+            String nombre;
+            _canario.removeAllItems();
             for (int i = 0; i < canarios.size(); i++) {
                 nombre = canarios.get(i).nombre;
                 _canario.addItem(nombre);

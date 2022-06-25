@@ -26,15 +26,15 @@ public class elegir_artista extends javax.swing.JFrame {
     }
 
     public void rellenarComboConductores_instrumentos(JComboBox _artistas) {
-        Conector conn = new Conector();
-        
-        ArrayList<Artista> artistas = new ArrayList();
-        artistas = conn.mostrarArtistas();
-
-        String nombre;
-        _artistas.removeAllItems();
         
         try {
+            Conector conn = new Conector();
+
+            ArrayList<Artista> artistas = new ArrayList();
+            artistas = conn.mostrarArtistas();
+
+            String nombre;
+            _artistas.removeAllItems();
             for (int i = 0; i < artistas.size(); i++) {
                 nombre = artistas.get(i).nombre;
                 _artistas.addItem(nombre);

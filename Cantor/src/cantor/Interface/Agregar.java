@@ -34,15 +34,15 @@ public class Agregar extends javax.swing.JFrame {
     }
 
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
-        Conector conn = new Conector();
-        
-        ArrayList<Instrumento> instrumento = new ArrayList();
-        instrumento = conn.mostrarInstrumentos();
-
-        String nombre;
-        _instrumento_seleccionado.removeAllItems();
         
         try {
+            Conector conn = new Conector();
+
+            ArrayList<Instrumento> instrumento = new ArrayList();
+            instrumento = conn.
+
+            String nombre;
+            _instrumento_seleccionado.removeAllItems();
             for (int i = 0; i < instrumento.size(); i++) {
                 nombre = instrumento.get(i).nombre;
                 _instrumento_seleccionado.addItem(nombre);
@@ -266,10 +266,10 @@ public class Agregar extends javax.swing.JFrame {
             util.MENSAJE("Porfavor ingrese el valor faltante.");
             ingreso_NOMBRE.requestFocusInWindow();
         } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-            var conn = new Conector();
             
 
             try {
+                var conn = new Conector();
                 String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
                 Artista artista;
@@ -294,10 +294,10 @@ public class Agregar extends javax.swing.JFrame {
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
-            var conn = new Conector();
             
 
             try {
+                var conn = new Conector();
                 Gallo gallo;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
@@ -313,10 +313,10 @@ public class Agregar extends javax.swing.JFrame {
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
-            var conn = new Conector();
             
 
             try {
+                var conn = new Conector();
                 Canario canario;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());

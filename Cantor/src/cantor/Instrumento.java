@@ -1,7 +1,9 @@
 package cantor;
 
+import java.io.Serializable;
 
-public class Instrumento {
+
+public class Instrumento implements Serializable{
     public String nombre;
     public String tipo;
 
