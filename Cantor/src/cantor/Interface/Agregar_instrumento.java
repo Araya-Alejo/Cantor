@@ -7,6 +7,8 @@ package cantor.Interface;
 import cantor.Instrumento;
 import base_datos.*;
 import Util.util;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -18,11 +20,12 @@ public class Agregar_instrumento extends javax.swing.JFrame {
      * Creates new form Agregar_instrumento
      */
     Conector conn = new Conector();
+
     public Agregar_instrumento() {
-        
+
         initComponents();
         setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -91,16 +94,16 @@ public class Agregar_instrumento extends javax.swing.JFrame {
 
     private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             Instrumento instrumento = new Instrumento(_instrumento.getText());
             conn.getGestorInstrumento().guardarDato(instrumento);
             util.MENSAJE("Instrumento guardado");
         } catch (Exception e) {
             System.out.println("error" + e);
-        } finally {
-            
         }
+
+
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
 
     /**
@@ -117,16 +120,24 @@ public class Agregar_instrumento extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Agregar_instrumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agregar_instrumento.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Agregar_instrumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agregar_instrumento.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Agregar_instrumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agregar_instrumento.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Agregar_instrumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agregar_instrumento.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

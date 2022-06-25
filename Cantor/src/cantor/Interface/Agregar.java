@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JComboBox;
+import javax.swing.*;
 
 /**
  *
@@ -27,16 +28,23 @@ public class Agregar extends javax.swing.JFrame {
      * Creates new form Agregar
      */
     Conector conn = new Conector();
-    
+
     public Agregar() {
         initComponents();
         setLocationRelativeTo(null);
         rellenarComboConductores_instrumentos(_instrumento_seleccionado);
         cargar_combo_momento(_momento);
+        actualizarPantalla();
     }
 
+    public void actualizarPantalla() {
+        JPanel temp=(JPanel) this.getContentPane();
+        SwingUtilities.updateComponentTreeUI(temp);
+        this.validateTree();
+    }
+    
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
-        
+
         try {
             ArrayList<Instrumento> instrumento = new ArrayList();
             instrumento = conn.getGestorInstrumento().getDatos();
@@ -258,13 +266,13 @@ public class Agregar extends javax.swing.JFrame {
 
     private void btn_ingresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresar2ActionPerformed
         // TODO add your handling code here:
-        
+
         if (ingreso_NOMBRE.getText().equals("")) {
             util.MENSAJE("Porfavor ingrese el valor faltante.");
             ingreso_NOMBRE.requestFocusInWindow();
         } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             try {
-                
+
                 String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
                 Artista artista;
@@ -282,7 +290,7 @@ public class Agregar extends javax.swing.JFrame {
                 }
 
                 conn.getGestorArtista().guardarDato(artista);
-                
+
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el artista" + e);
@@ -292,7 +300,7 @@ public class Agregar extends javax.swing.JFrame {
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
             try {
-                
+
                 Gallo gallo;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
@@ -308,7 +316,7 @@ public class Agregar extends javax.swing.JFrame {
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
             try {
-                
+
                 Canario canario;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
@@ -342,14 +350,16 @@ public class Agregar extends javax.swing.JFrame {
         if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             _instrumento_seleccionado.setEnabled(true);
             btn_agregar_instrumento.setEnabled(true);
-            
+            ingreso_LISTA_INSTRUMENTOS.setEnabled(true);
+
         } else {
             _instrumento_seleccionado.setEnabled(false);
             btn_agregar_instrumento.setEnabled(false);
-            
+            ingreso_LISTA_INSTRUMENTOS.setEnabled(false);
+
         }
 
-        
+
     }//GEN-LAST:event__LISTA_TIPOActionPerformed
 
     private void ingreso_NOMBREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_NOMBREActionPerformed
@@ -358,10 +368,13 @@ public class Agregar extends javax.swing.JFrame {
 
     private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
         // TODO add your handling code here:
+
         var elegir = new Agregar_instrumento();
         elegir.setVisible(true);
 
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
+
+    
 
     private void _instrumento_seleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__instrumento_seleccionadoActionPerformed
         // TODO add your handling code here:
