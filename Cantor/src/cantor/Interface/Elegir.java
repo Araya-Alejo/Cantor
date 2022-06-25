@@ -27,8 +27,11 @@ public class Elegir extends javax.swing.JFrame {
     public Elegir() {
 
         initComponents();
+        
         setLocationRelativeTo(null);
         rellenarComboConductores_artista(_artistas);
+        String[] arreglo = {""};
+        this._artistas.setModel(new DefaultComboBoxModel(arreglo));
     }
 
     public void rellenarComboConductores_instrumentos(JComboBox _artistas) {
@@ -225,7 +228,6 @@ public class Elegir extends javax.swing.JFrame {
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         // TODO add your handling code here:
         try {
-            _artistas.removeAllItems();
             if (evt.getStateChange() == ItemEvent.SELECTED) {
                 if (jComboBox1.getSelectedIndex() > 0) {
                     if (jComboBox1.getSelectedIndex() == 1) {
@@ -243,6 +245,9 @@ public class Elegir extends javax.swing.JFrame {
                         String[] arreglo3 = convertirArrayArregloCanario(canarios);
                         this._artistas.setModel(new DefaultComboBoxModel(arreglo3));
                     }
+                }else{
+                    String[] arreglo = {""};
+                    this._artistas.setModel(new DefaultComboBoxModel(arreglo));
                 }
             }
         } catch (Exception ex) {
