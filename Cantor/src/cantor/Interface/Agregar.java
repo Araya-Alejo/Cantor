@@ -16,7 +16,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JComboBox;
-import javax.swing.*;
 
 /**
  *
@@ -34,13 +33,6 @@ public class Agregar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         rellenarComboConductores_instrumentos(_instrumento_seleccionado);
         cargar_combo_momento(_momento);
-        actualizarPantalla();
-    }
-
-    public void actualizarPantalla() {
-        JPanel temp=(JPanel) this.getContentPane();
-        SwingUtilities.updateComponentTreeUI(temp);
-        this.validateTree();
     }
     
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
@@ -254,7 +246,7 @@ public class Agregar extends javax.swing.JFrame {
 
     private void ingreso_LISTA_INSTRUMENTOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_LISTA_INSTRUMENTOSActionPerformed
         // TODO add your handling code here:
-        if (ingreso_LISTA_INSTRUMENTOS.getSelectedItem().equals("NO")) {  //User have not entered anything.
+        if (ingreso_LISTA_INSTRUMENTOS.getSelectedItem().equals("NO")) {
             _instrumento_seleccionado.setEnabled(false);
             btn_agregar_instrumento.setEnabled(false);
         } else if (ingreso_LISTA_INSTRUMENTOS.getSelectedItem().equals("SI")) {
@@ -347,16 +339,16 @@ public class Agregar extends javax.swing.JFrame {
     private void _LISTA_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_TIPOActionPerformed
         // TODO add your handling code here:
 
-        if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-            _instrumento_seleccionado.setEnabled(true);
-            btn_agregar_instrumento.setEnabled(true);
-            ingreso_LISTA_INSTRUMENTOS.setEnabled(true);
-
-        } else {
+        if (!_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+            
             _instrumento_seleccionado.setEnabled(false);
             btn_agregar_instrumento.setEnabled(false);
             ingreso_LISTA_INSTRUMENTOS.setEnabled(false);
 
+        } else {
+            _instrumento_seleccionado.setEnabled(true);
+            btn_agregar_instrumento.setEnabled(true);
+            ingreso_LISTA_INSTRUMENTOS.setEnabled(true);
         }
 
 
