@@ -135,7 +135,7 @@ public class View extends javax.swing.JFrame {
     private void btn_elegirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_elegirActionPerformed
         // TODO add your handling code here:
 
-        var elegir = new host_elegir();
+        var elegir = new Elegir();
         elegir.setVisible(true);
     }//GEN-LAST:event_btn_elegirActionPerformed
 

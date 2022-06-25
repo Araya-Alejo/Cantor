@@ -6,42 +6,44 @@ package cantor.Interface;
 
 import base_datos.Conector;
 import cantor.Artista;
+import cantor.Canario;
+import cantor.Gallo;
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
-
 
 /**
  *
  * @author alejo
  */
-public class elegir_artista extends javax.swing.JFrame {
+public class Elegir extends javax.swing.JFrame {
 
     /**
      * Creates new form Elefir
      */
     Conector conn = new Conector();
-    public elegir_artista() {
-        
+
+    public Elegir() {
+
         initComponents();
         setLocationRelativeTo(null);
         rellenarComboConductores_artista(_artistas);
     }
 
-
     public void rellenarComboConductores_instrumentos(JComboBox _artistas) {
     }
+
     public void rellenarComboConductores_artista(JComboBox _artistas) {
-        
-        
+
         ArrayList<Artista> artistas = new ArrayList();
         artistas = conn.getGestorArtista().getDatos();
 
         String nombre;
         _artistas.removeAllItems();
 
-        
         try {
-            
+
             _artistas.removeAllItems();
             for (int i = 0; i < artistas.size(); i++) {
                 nombre = artistas.get(i).nombre;
@@ -52,6 +54,7 @@ public class elegir_artista extends javax.swing.JFrame {
         }
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,6 +74,7 @@ public class elegir_artista extends javax.swing.JFrame {
         _salida_canto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
         jLabel1.setText("ELIGE AL ARTISTA");
@@ -105,6 +109,13 @@ public class elegir_artista extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Tipo", "ARTISTA", "GALLO", "CANARIO" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,9 +123,9 @@ public class elegir_artista extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(158, 158, 158)
                 .addComponent(jLabel1)
-                .addContainerGap(157, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
@@ -125,19 +136,22 @@ public class elegir_artista extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jLabel4))
-                    .addComponent(_artistas, 0, 236, Short.MAX_VALUE)
+                    .addComponent(_artistas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(_salida_nacimiento)
                     .addComponent(_salida_instrumento)
                     .addComponent(_salida_canto)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(86, 86, 86))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(_artistas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -153,7 +167,7 @@ public class elegir_artista extends javax.swing.JFrame {
                 .addComponent(_salida_canto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,7 +194,87 @@ public class elegir_artista extends javax.swing.JFrame {
 
     private void _artistasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__artistasItemStateChanged
         // TODO add your handling code here:
+        try {
+            if (jComboBox1.getSelectedItem().equals("ARTISTA")) {
+                ArrayList<Artista> art = conn.getGestorArtista().getDatos();
+
+                for (Artista artista : art) {
+                    if (_artistas.getSelectedItem().equals(artista)) {
+                        _salida_nacimiento.setText(String.valueOf(artista.fechaNacimiento));
+                        _salida_instrumento.setText(artista.usa.nombre);
+                        _salida_canto.setText(artista.cuando.tipo);
+                    }
+                }
+
+            }
+//                    if (jComboBox1.getSelectedIndex()==2) {
+//                        ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
+//                        String[] arreglo2 = convertirArrayArregloGallo(gallos);
+//                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(arreglo2));
+//                    }
+//                    if (jComboBox1.getSelectedIndex()==3) {
+//                        ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
+//                        String[] arreglo3 = convertirArrayArregloCanario(canarios);
+//                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(arreglo3));
+//                    }
+        } catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
     }//GEN-LAST:event__artistasItemStateChanged
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        try {
+            _artistas.removeAllItems();
+            if (evt.getStateChange() == ItemEvent.SELECTED) {
+                if (jComboBox1.getSelectedIndex() > 0) {
+                    if (jComboBox1.getSelectedIndex() == 1) {
+                        ArrayList<Artista> art = conn.getGestorArtista().getDatos();
+                        String[] arreglo1 = convertirArrayArregloArtista(art);
+                        this._artistas.setModel(new DefaultComboBoxModel(arreglo1));
+                    }
+                    if (jComboBox1.getSelectedIndex() == 2) {
+                        ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
+                        String[] arreglo2 = convertirArrayArregloGallo(gallos);
+                        this._artistas.setModel(new DefaultComboBoxModel(arreglo2));
+                    }
+                    if (jComboBox1.getSelectedIndex() == 3) {
+                        ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
+                        String[] arreglo3 = convertirArrayArregloCanario(canarios);
+                        this._artistas.setModel(new DefaultComboBoxModel(arreglo3));
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+
+    }
+
+    public String[] convertirArrayArregloArtista(ArrayList<Artista> array) {
+        String[] arreglo = new String[array.size()];
+        for (int i = 0; i < array.size(); i++) {
+            arreglo[i] = array.get(i).nombre;
+        }
+        return arreglo;
+    }
+
+    public String[] convertirArrayArregloGallo(ArrayList<Gallo> array) {
+        String[] arreglo = new String[array.size()];
+        for (int i = 0; i < array.size(); i++) {
+            arreglo[i] = array.get(i).nombre;
+        }
+        return arreglo;
+    }
+
+    public String[] convertirArrayArregloCanario(ArrayList<Canario> array) {
+        String[] arreglo = new String[array.size()];
+        for (int i = 0; i < array.size(); i++) {
+            arreglo[i] = array.get(i).nombre;
+        }
+        return arreglo;
+
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -196,17 +290,29 @@ public class elegir_artista extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(elegir_artista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Elegir.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(elegir_artista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Elegir.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(elegir_artista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Elegir.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(elegir_artista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Elegir.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -215,7 +321,7 @@ public class elegir_artista extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new elegir_artista().setVisible(true);
+                new Elegir().setVisible(true);
             }
         });
     }
@@ -226,6 +332,7 @@ public class elegir_artista extends javax.swing.JFrame {
     private javax.swing.JTextField _salida_instrumento;
     private javax.swing.JTextField _salida_nacimiento;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
