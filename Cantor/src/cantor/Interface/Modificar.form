@@ -36,7 +36,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="67" max="32767" attributes="0"/>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                           <Component id="muestra_momento" min="-2" pref="302" max="-2" attributes="0"/>
@@ -94,7 +94,7 @@
                       <Component id="btn_modificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="_ELIMINAR_" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

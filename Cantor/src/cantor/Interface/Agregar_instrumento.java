@@ -74,7 +74,7 @@ public class Agregar_instrumento extends javax.swing.JFrame {
                 .addComponent(_instrumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(btn_agregar_instrumento)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
