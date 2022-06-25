@@ -270,12 +270,14 @@ public class Agregar extends javax.swing.JFrame {
                 Artista artista;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
-
+                System.out.println(momento.tipo);
                 if (String.valueOf(ingreso_LISTA_INSTRUMENTOS.getSelectedItem()).equals("SI")) {
                     Instrumento instrumento = new Instrumento(String.valueOf(_instrumento_seleccionado.getSelectedItem()));
+                    System.out.println(instrumento.nombre);
                     artista = new Artista(instrumento, ingreso_NOMBRE.getText(), nacimiento, momento);
                 } else {
                     Instrumento instrumento = new Instrumento("Mi voz");
+                    System.out.println(instrumento.nombre);
                     artista = new Artista(instrumento, ingreso_NOMBRE.getText(), nacimiento, momento);
                 }
 
