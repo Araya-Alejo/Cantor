@@ -125,7 +125,7 @@ public class GestorFicheroSerializado<T> {
     }
 
     public void borrarDato(T elemento) {
-
+        
         if(datos.remove(elemento)){
             ArrayList<T> copia = datos;
             datos = new ArrayList<>();
