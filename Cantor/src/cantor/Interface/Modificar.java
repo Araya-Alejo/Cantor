@@ -31,39 +31,11 @@ public class Modificar extends javax.swing.JFrame {
         
         initComponents();
         setLocationRelativeTo(null);
-        rellenarComboConductores_instrumentos(_instrumento_seleccionado);
-        cargar_combo_momento(_momento);
+        
+        
         
     }
     
-    public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
-
-        try {
-            ArrayList<Instrumento> instrumentos = new ArrayList();
-            
-            instrumentos = conn.getGestorInstrumento().getDatos();
-            System.out.println(instrumentos.size());
-            
-            _instrumento_seleccionado.removeAllItems();
-            for (Instrumento instrumento : instrumentos) {
-                _instrumento_seleccionado.addItem(instrumento.nombre);
-                
-            }
-            
-        } catch (Exception e) {
-            System.out.println("Error al cargar ComboBox\n\n" + e);
-        } 
-
-    }
-
-    public void cargar_combo_momento(JComboBox _momento) {
-        _momento.addItem("Mañana");
-        _momento.addItem("Medio dia");
-        _momento.addItem("Tarde");
-        _momento.addItem("Tarde noche");
-        _momento.addItem("Noche");
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,10 +52,9 @@ public class Modificar extends javax.swing.JFrame {
         _LISTA_DE_ARTISTAS = new javax.swing.JComboBox<>();
         _ELIMINAR_ = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        _instrumento_seleccionado = new javax.swing.JComboBox<>();
-        _momento = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        addInstrumento = new javax.swing.JButton();
+        muestra_instrumento = new javax.swing.JLabel();
+        muestra_momento = new javax.swing.JLabel();
 
         jLabel28.setText("Nombre del instrumento");
 
@@ -127,22 +98,13 @@ public class Modificar extends javax.swing.JFrame {
             }
         });
 
-        _instrumento_seleccionado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        _instrumento_seleccionado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _instrumento_seleccionadoActionPerformed(evt);
-            }
-        });
-
-        _momento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _momentoActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Momento");
 
-        addInstrumento.setText("Agregar un instrumento nuevo");
+        muestra_instrumento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        muestra_instrumento.setText("Seleccion");
+
+        muestra_momento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        muestra_momento.setText("Seleccion");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,30 +113,28 @@ public class Modificar extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(67, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btn_modificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(_ELIMINAR_, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jComboBox1, 0, 307, Short.MAX_VALUE)
-                                .addComponent(_LISTA_DE_ARTISTAS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(_instrumento_seleccionado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(_momento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(41, 41, 41))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(136, 136, 136))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(muestra_momento, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(104, 104, 104))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(136, 136, 136))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btn_modificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(_ELIMINAR_, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 307, Short.MAX_VALUE)
+                                    .addComponent(_LISTA_DE_ARTISTAS, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(muestra_instrumento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(41, 41, 41))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(173, 173, 173))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(addInstrumento)
-                        .addGap(100, 100, 100))))
+                        .addGap(171, 171, 171))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,15 +147,13 @@ public class Modificar extends javax.swing.JFrame {
                 .addComponent(_LISTA_DE_ARTISTAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel28)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(_instrumento_seleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addInstrumento)
                 .addGap(20, 20, 20)
+                .addComponent(muestra_instrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(_momento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addComponent(muestra_momento, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_modificacion)
                     .addComponent(_ELIMINAR_))
@@ -262,15 +220,6 @@ public class Modificar extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event__ELIMINAR_ActionPerformed
 
-    private void _instrumento_seleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__instrumento_seleccionadoActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event__instrumento_seleccionadoActionPerformed
-
-    private void _momentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__momentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event__momentoActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         
@@ -284,6 +233,7 @@ public class Modificar extends javax.swing.JFrame {
                         ArrayList<Artista> art = conn.getGestorArtista().getDatos();
                         String[] arreglo1 = convertirArrayArregloArtista(art);
                         this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(arreglo1));
+                        
                     }
                     if (jComboBox1.getSelectedIndex()==2) {
                         ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
@@ -363,14 +313,13 @@ public class Modificar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton _ELIMINAR_;
     private javax.swing.JComboBox<String> _LISTA_DE_ARTISTAS;
-    private javax.swing.JComboBox<String> _instrumento_seleccionado;
-    private javax.swing.JComboBox<String> _momento;
-    private javax.swing.JButton addInstrumento;
     private javax.swing.JButton btn_modificacion;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel muestra_instrumento;
+    private javax.swing.JLabel muestra_momento;
     // End of variables declaration//GEN-END:variables
 }
