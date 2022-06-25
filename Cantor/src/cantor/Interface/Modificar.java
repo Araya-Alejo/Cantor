@@ -279,19 +279,21 @@ public class Modificar extends javax.swing.JFrame {
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         try{
             if(evt.getStateChange() == ItemEvent.SELECTED){
-                
-                int seleccion = jComboBox1.getSelectedIndex();
-                if (seleccion ==1) {
-                    ArrayList<Artista> art = conn.getGestorArtista().getDatos();
-                    this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloArtista(art)));
-
-                } else {
-                    if (seleccion==2) {
+                if (jComboBox1.getSelectedIndex() >0) {
+                    if (jComboBox1.getSelectedIndex()==1) {
+                        ArrayList<Artista> art = conn.getGestorArtista().getDatos();
+                        String[] arreglo1 = convertirArrayArregloArtista(art);
+                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(arreglo1));
+                    }
+                    if (jComboBox1.getSelectedIndex()==2) {
                         ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
-                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloGallo(gallos)));
-                    } else {
+                        String[] arreglo2 = convertirArrayArregloGallo(gallos);
+                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(arreglo2));
+                    }
+                    if (jComboBox1.getSelectedIndex()==3) {
                         ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
-                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloCanario(canarios)));
+                        String[] arreglo3 = convertirArrayArregloCanario(canarios);
+                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(arreglo3));
                     }
                 }
             }
@@ -302,24 +304,24 @@ public class Modificar extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboBox1ItemStateChanged
     
-    public Artista[] convertirArrayArregloArtista(ArrayList<Artista> array){
-        Artista[] arreglo = new Artista[array.size()];
+    public String[] convertirArrayArregloArtista(ArrayList<Artista> array){
+        String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {
-            arreglo[i]= array.get(i);
+            arreglo[i]= array.get(i).nombre;
         }
         return arreglo;
     }
-    public Gallo[] convertirArrayArregloGallo(ArrayList<Gallo> array){
-        Gallo[] arreglo = new Gallo[array.size()];
+    public String[] convertirArrayArregloGallo(ArrayList<Gallo> array){
+        String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {
-            arreglo[i]= array.get(i);
+            arreglo[i]= array.get(i).nombre;
         }
         return arreglo;
     }
-    public Canario[] convertirArrayArregloCanario(ArrayList<Canario> array){
-        Canario[] arreglo = new Canario[array.size()];
+    public String[] convertirArrayArregloCanario(ArrayList<Canario> array){
+        String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {
-            arreglo[i]= array.get(i);
+            arreglo[i]= array.get(i).nombre;
         }
         return arreglo;
     }
