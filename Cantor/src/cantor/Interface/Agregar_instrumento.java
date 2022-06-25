@@ -17,9 +17,11 @@ public class Agregar_instrumento extends javax.swing.JFrame {
     /**
      * Creates new form Agregar_instrumento
      */
+    Conector conn = new Conector();
     public Agregar_instrumento() {
         initComponents();
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -90,10 +92,8 @@ public class Agregar_instrumento extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try {
-            
-            Conector conn = new Conector();
             Instrumento instrumento = new Instrumento(_instrumento.getText());
-            conn.saveInstrumento(instrumento);
+            conn.getGestorInstrumento().guardarDato(instrumento);
             util.MENSAJE("Instrumento guardado");
         } catch (Exception e) {
             System.out.println("error" + e);

@@ -25,6 +25,7 @@ public class Modificar extends javax.swing.JFrame {
     /**
      * Creates new form Modificar
      */
+    Conector conn = new Conector();
     public Modificar() {
         initComponents();
         setLocationRelativeTo(null);
@@ -35,10 +36,10 @@ public class Modificar extends javax.swing.JFrame {
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
 
         try {
-            Conector conn = new Conector();
+            
 
             ArrayList<Instrumento> instrumento = new ArrayList();
-            instrumento = conn.mostrarInstrumentos();
+            instrumento = conn.getGestorInstrumento().getDatos();
 
             String nombre;
             _instrumento_seleccionado.removeAllItems();
@@ -233,29 +234,29 @@ public class Modificar extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_modificacionActionPerformed
 
     private void _ELIMINAR_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__ELIMINAR_ActionPerformed
-        String seleccion = String.valueOf(jComboBox1.getSelectedItem());
-        System.out.println(seleccion);
-        int n = JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar el artista", "", JOptionPane.YES_NO_OPTION);
-        try{
-            if (n == JOptionPane.YES_OPTION) {
-                String value = (String) _LISTA_DE_ARTISTAS.getSelectedItem();
-                Conector conn = new Conector();
-                if (seleccion.equals("ARTISTA")) {
-                    conn.deleteArtista(value);
-                } else {
-                    if (seleccion.equals("GALLO")) {
-                        conn.deleteGallo(value);
-                    } else {
-                        conn.deleteCanario(value);
-                    }
-                }
-                JOptionPane.showMessageDialog(null, "Artista borrado");
-            } else {
-                JOptionPane.showMessageDialog(null, "El Artista no fue borrado");
-            }
-        }catch(Exception ex){
-            System.out.println("Error");
-        }
+//        String seleccion = String.valueOf(jComboBox1.getSelectedItem());
+//        System.out.println(seleccion);
+//        int n = JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar el artista", "", JOptionPane.YES_NO_OPTION);
+//        try{
+//            if (n == JOptionPane.YES_OPTION) {
+//                String value = (String) _LISTA_DE_ARTISTAS.getSelectedItem();
+//                
+//                if (seleccion.equals("ARTISTA")) {
+//                    conn.getGestorArtista().borrarDato(elemento);
+//                } else {
+//                    if (seleccion.equals("GALLO")) {
+//                        conn.deleteGallo(value);
+//                    } else {
+//                        conn.deleteCanario(value);
+//                    }
+//                }
+//                JOptionPane.showMessageDialog(null, "Artista borrado");
+//            } else {
+//                JOptionPane.showMessageDialog(null, "El Artista no fue borrado");
+//            }
+//        }catch(Exception ex){
+//            System.out.println("Error");
+//        }
     }//GEN-LAST:event__ELIMINAR_ActionPerformed
 
     private void _instrumento_seleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__instrumento_seleccionadoActionPerformed
@@ -273,30 +274,30 @@ public class Modificar extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-        try{
-            if(evt.getStateChange() == ItemEvent.SELECTED){
-                Conector conn = new Conector();
-                int seleccion = jComboBox1.getSelectedIndex();
-                if (seleccion ==1) {
-                    ArrayList<Artista> art = new ArrayList();
-                    art = conn.mostrarArtistas();
-                    _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloArtista(art)));
-
-                } else {
-                    if (seleccion==2) {
-                        ArrayList<Gallo> gallos = new ArrayList();
-                        gallos = conn.mostrarGallos();
-                        _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloGallo(gallos)));
-                    } else {
-                        ArrayList<Canario> canarios = new ArrayList();
-                        canarios = conn.mostrarCanarios();
-                        _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloCanario(canarios)));
-                    }
-                }
-            }
-        }catch(Exception ex){
-            System.out.println("Error"+ ex.getMessage());
-        }
+//        try{
+//            if(evt.getStateChange() == ItemEvent.SELECTED){
+//                Conector conn = new Conector();
+//                int seleccion = jComboBox1.getSelectedIndex();
+//                if (seleccion ==1) {
+//                    ArrayList<Artista> art = new ArrayList();
+//                    art = conn.mostrarArtistas();
+//                    _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloArtista(art)));
+//
+//                } else {
+//                    if (seleccion==2) {
+//                        ArrayList<Gallo> gallos = new ArrayList();
+//                        gallos = conn.mostrarGallos();
+//                        _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloGallo(gallos)));
+//                    } else {
+//                        ArrayList<Canario> canarios = new ArrayList();
+//                        canarios = conn.mostrarCanarios();
+//                        _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloCanario(canarios)));
+//                    }
+//                }
+//            }
+//        }catch(Exception ex){
+//            System.out.println("Error"+ ex.getMessage());
+//        }
         
         
     }//GEN-LAST:event_jComboBox1ItemStateChanged

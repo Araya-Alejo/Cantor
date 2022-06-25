@@ -4,6 +4,8 @@
  */
 package cantor.Interface;
 
+import base_datos.Conector;
+
 /**
  *
  * @author alejo
@@ -13,6 +15,7 @@ public class host_elegir extends javax.swing.JFrame {
     /**
      * Creates new form host_elegir
      */
+    Conector conn = new Conector();
     public host_elegir() {
         initComponents();
         setLocationRelativeTo(null);

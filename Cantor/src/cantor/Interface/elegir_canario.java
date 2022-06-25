@@ -18,6 +18,7 @@ public class elegir_canario extends javax.swing.JFrame {
     /**
      * Creates new form elegir_canario
      */
+    Conector conn = new Conector();
     public elegir_canario() {
         initComponents();
         setLocationRelativeTo(null);
@@ -27,11 +28,9 @@ public class elegir_canario extends javax.swing.JFrame {
     public void rellenarComboConductores_instrumentos(JComboBox _canario) {
 
         try {
-            Conector conn = new Conector();
 
             ArrayList<Canario> canarios = new ArrayList();
-            canarios = conn.mostrarCanarios();
-
+            canarios = conn.getGestorCanario().getDatos();
             String nombre;
             _canario.removeAllItems();
             for (int i = 0; i < canarios.size(); i++) {

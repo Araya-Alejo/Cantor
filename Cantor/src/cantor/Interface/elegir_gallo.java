@@ -18,6 +18,7 @@ public class elegir_gallo extends javax.swing.JFrame {
     /**
      * Creates new form elegir_gallo
      */
+    Conector conn = new Conector();
     public elegir_gallo() {
         initComponents();
         setLocationRelativeTo(null);
@@ -27,11 +28,9 @@ public class elegir_gallo extends javax.swing.JFrame {
     public void rellenarComboConductores_instrumentos(JComboBox _gallo) {
 
         try {
-            Conector conn = new Conector();
 
             ArrayList<Gallo> gallos = new ArrayList();
-            gallos = conn.mostrarGallos();
-
+            gallos = conn.getGestorGallo().getDatos();
             String nombre;
             _gallo.removeAllItems();
             for (int i = 0; i < gallos.size(); i++) {

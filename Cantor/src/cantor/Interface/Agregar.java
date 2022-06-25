@@ -26,6 +26,8 @@ public class Agregar extends javax.swing.JFrame {
     /**
      * Creates new form Agregar
      */
+    Conector conn = new Conector();
+    
     public Agregar() {
         initComponents();
         setLocationRelativeTo(null);
@@ -36,8 +38,6 @@ public class Agregar extends javax.swing.JFrame {
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
         
         try {
-            Conector conn = new Conector();
-
             ArrayList<Instrumento> instrumento = new ArrayList();
             instrumento = conn.getGestorInstrumento().getDatos();
 
@@ -261,7 +261,7 @@ public class Agregar extends javax.swing.JFrame {
 
     private void btn_ingresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresar2ActionPerformed
         // TODO add your handling code here:
-
+        
         if (ingreso_NOMBRE.getText().equals("")) {
             util.MENSAJE("Porfavor ingrese el valor faltante.");
             ingreso_NOMBRE.requestFocusInWindow();
@@ -269,7 +269,7 @@ public class Agregar extends javax.swing.JFrame {
             
 
             try {
-                var conn = new Conector();
+                
                 String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
 
                 Artista artista;
@@ -298,7 +298,7 @@ public class Agregar extends javax.swing.JFrame {
             
 
             try {
-                var conn = new Conector();
+                
                 Gallo gallo;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
@@ -317,7 +317,7 @@ public class Agregar extends javax.swing.JFrame {
             
 
             try {
-                var conn = new Conector();
+                
                 Canario canario;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());

@@ -12,17 +12,23 @@ package cantor.Interface;
  * @author Mega Tecnologia
  */
 import Util.util;
+import base_datos.Conector;
+import java.io.File;
 public class View extends javax.swing.JFrame {
 
     /**
      * Creates new form Vista
      */
     
+    Conector conn = new Conector();
     
     public View() {
         initComponents();
         setLocationRelativeTo(null);
+        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

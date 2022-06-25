@@ -6,14 +6,42 @@ import cantor.Artista;
 import cantor.Canario;
 import cantor.Gallo;
 import cantor.Instrumento;
+import java.io.File;
 
 public class Conector {
-    
-    private GestorFicheroSerializado<Artista> gestorArtista = new GestorFicheroSerializado("artistas.ddr");
-    private GestorFicheroSerializado<Gallo> gestorGallo = new GestorFicheroSerializado("gallos.ddr");
-    private GestorFicheroSerializado<Canario> gestorCanario = new GestorFicheroSerializado("canarios.ddr");
-    private GestorFicheroSerializado<Instrumento> gestorInstrumento = new GestorFicheroSerializado("instrumentos.ddr");
+    private GestorFicheroSerializado<Artista> gestorArtista = null;
+    private GestorFicheroSerializado<Gallo> gestorGallo = null;
+    private GestorFicheroSerializado<Canario> gestorCanario = null;
+    private GestorFicheroSerializado<Instrumento> gestorInstrumento = null;
 
+    public void instanciaArchivos(File artistas, File gallos, File canarios, File instrumentos){
+        this.gestorArtista = new GestorFicheroSerializado(artistas);
+        this.gestorGallo = new GestorFicheroSerializado(gallos);
+        this.gestorCanario = new GestorFicheroSerializado(canarios);
+        this.gestorInstrumento = new GestorFicheroSerializado(instrumentos);
+    }
+    public void creaArchivos(){
+        this.gestorArtista = new GestorFicheroSerializado("artistas.ddr");
+        this.gestorGallo = new GestorFicheroSerializado("gallos.ddr");
+        this.gestorCanario = new GestorFicheroSerializado("canarios.ddr");
+        this.gestorInstrumento = new GestorFicheroSerializado("instrumentos.ddr");
+    }
+    
+    public Conector() {
+        File artistas = new File("artistas.drr");
+        File gallos = new File("gallos.drr");
+        File canarios = new File("canarios.drr");
+        File instrumentos = new File("instrumentos.drr");
+        
+        if(artistas.exists() && gallos.exists() && canarios.exists() && instrumentos.exists()){
+            instanciaArchivos(artistas, gallos, canarios, instrumentos);
+            System.out.println("Se instancian los archivos");
+        }else{
+            creaArchivos();
+            System.out.println("Se crean los archivos");
+        }
+    }
+    
     public GestorFicheroSerializado<Artista> getGestorArtista() {
         return gestorArtista;
     }
