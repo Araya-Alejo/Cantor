@@ -62,8 +62,6 @@ public class elegir_gallo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         _salida_canto = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel4.setText("Momento de canto");
 
         jButton1.setText("Cantar");
@@ -102,8 +100,7 @@ public class elegir_gallo extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(89, 89, 89)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(_salida_canto)
                         .addComponent(_salida_nacimiento)
@@ -164,19 +161,17 @@ public class elegir_gallo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void _galloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__galloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event__galloActionPerformed
 
     private void _galloItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__galloItemStateChanged
         // TODO add your handling code here:
-
     }//GEN-LAST:event__galloItemStateChanged
 
-    private void _galloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__galloActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
-    }//GEN-LAST:event__galloActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

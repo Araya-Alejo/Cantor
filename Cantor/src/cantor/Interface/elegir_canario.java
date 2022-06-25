@@ -60,8 +60,6 @@ public class elegir_canario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         _salida_nacimiento.setEnabled(false);
 
         jLabel2.setText("Fecha de nacimiento");

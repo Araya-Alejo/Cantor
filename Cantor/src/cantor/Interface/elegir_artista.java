@@ -22,12 +22,12 @@ public class elegir_artista extends javax.swing.JFrame {
     public elegir_artista() {
         initComponents();
         setLocationRelativeTo(null);
-        rellenarComboConductores_instrumentos(_artistas);
+        rellenarComboConductores_artista(_artistas);
     }
 
-    public void rellenarComboConductores_instrumentos(JComboBox _artistas) {
+    public void rellenarComboConductores_artista(JComboBox _artistas) {
         Conector conn = new Conector();
-        
+        conn.connect();
         ArrayList<Artista> artistas = new ArrayList();
         artistas = conn.mostrarArtistas();
 
@@ -41,6 +41,8 @@ public class elegir_artista extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             System.out.println("Error al cargar ComboBox\n\n" + e);
+        } finally {
+            conn.close();
         }
 
     }
@@ -167,17 +169,11 @@ public class elegir_artista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void _artistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__artistasActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
+        // TODO add your handling code here
     }//GEN-LAST:event__artistasActionPerformed
 
     private void _artistasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__artistasItemStateChanged
         // TODO add your handling code here:
-        
-        
-        
     }//GEN-LAST:event__artistasItemStateChanged
 
     /**
