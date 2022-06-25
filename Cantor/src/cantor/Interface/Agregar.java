@@ -282,7 +282,7 @@ public class Agregar extends javax.swing.JFrame {
                 }
 
                 conn.getGestorArtista().guardarDato(artista);
-                System.exit(0);
+                
                 util.MENSAJE("Se ha cargado correctamente");
                 borrar_combo();
             } catch (Exception e) {
@@ -301,7 +301,7 @@ public class Agregar extends javax.swing.JFrame {
 
                 conn.getGestorGallo().guardarDato(gallo);
                 util.MENSAJE("Se ha cargado correctamente");
-                System.exit(0);
+                
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el gallo" + e);
@@ -318,7 +318,7 @@ public class Agregar extends javax.swing.JFrame {
                 canario = new Canario(ingreso_NOMBRE.getText(), nacimiento, momento);
 
                 conn.getGestorCanario().guardarDato(canario);
-                System.exit(0);
+                
                 borrar_combo();
                 util.MENSAJE("Se ha cargado correctamente");
             } catch (Exception e) {
