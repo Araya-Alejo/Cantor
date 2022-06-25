@@ -107,7 +107,7 @@ public class Conector {
             result = st.executeQuery();
             
             while (result.next()) {
-                Artista artista= new Artista((Instrumento)result.getObject("Instrumento"),result.getString("Nombre"), result.getString("FechaNacimiento"), (Momento)result.getObject("Momento"));
+                Artista artista= new Artista(((Instrumento)result.getObject("Instrumento")),(result.getString("Nombre")), (result.getString("FechaNacimiento")), ((Momento)result.getObject("Momento")));
                 art.add(artista);
             }
         } catch (SQLException ex) {
