@@ -322,6 +322,7 @@ public class Agregar extends javax.swing.JFrame {
 
         }
 
+        
     }//GEN-LAST:event_btn_ingresar2ActionPerformed
 
     public void borrar_combo() {

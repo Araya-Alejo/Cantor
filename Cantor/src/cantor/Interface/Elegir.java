@@ -229,6 +229,7 @@ public class Elegir extends javax.swing.JFrame {
                         for (Artista artista : art) {
                             if (_artistas.getSelectedItem().equals(artista.nombre)) {
                                 _salida_nacimiento.setText(String.valueOf(artista.fechaNacimiento));
+                                _salida_edad.setText(String.valueOf(artista.calcularEdad()));
                                 _salida_instrumento.setText(artista.usa.nombre);
                                 _salida_canto.setText(artista.cuando.tipo);
                             }
@@ -239,6 +240,7 @@ public class Elegir extends javax.swing.JFrame {
                         for (Gallo gallo : gallos) {
                             if (_artistas.getSelectedItem().equals(gallo.nombre)) {
                                 _salida_nacimiento.setText(String.valueOf(gallo.fechaNacimiento));
+                                _salida_edad.setText(String.valueOf(gallo.calcularEdad()));
                                 _salida_canto.setText(gallo.cuando.tipo);
                             }
                         }
@@ -248,6 +250,7 @@ public class Elegir extends javax.swing.JFrame {
                         for (Canario canario : canarios) {
                             if (_artistas.getSelectedItem().equals(canario.nombre)) {
                                 _salida_nacimiento.setText(String.valueOf(canario.fechaNacimiento));
+                                _salida_edad.setText(String.valueOf(canario.calcularEdad()));
                                 _salida_canto.setText(canario.cuando.tipo);
                             }
                         }
