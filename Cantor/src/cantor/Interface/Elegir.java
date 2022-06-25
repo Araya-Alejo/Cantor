@@ -27,7 +27,7 @@ public class Elegir extends javax.swing.JFrame {
     public Elegir() {
 
         initComponents();
-        
+
         setLocationRelativeTo(null);
         rellenarComboConductores_artista(_artistas);
         String[] arreglo = {""};
@@ -93,14 +93,20 @@ public class Elegir extends javax.swing.JFrame {
             }
         });
 
+        _salida_nacimiento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        _salida_nacimiento.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         _salida_nacimiento.setEnabled(false);
 
+        _salida_instrumento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        _salida_instrumento.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         _salida_instrumento.setEnabled(false);
 
         jLabel2.setText("Fecha de nacimiento");
 
         jLabel3.setText("Instrumento que toca");
 
+        _salida_canto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        _salida_canto.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         _salida_canto.setEnabled(false);
 
         jLabel4.setText("Momento de canto");
@@ -198,31 +204,37 @@ public class Elegir extends javax.swing.JFrame {
     private void _artistasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__artistasItemStateChanged
         // TODO add your handling code here:
         try {
-            if (jComboBox1.getSelectedItem().equals("ARTISTA")) {
-                ArrayList<Artista> art = conn.getGestorArtista().getDatos();
-
-                for (Artista artista : art) {
-                    if (_artistas.getSelectedItem().equals(artista)) {
-                        _salida_nacimiento.setText(String.valueOf(artista.fechaNacimiento));
-                        _salida_instrumento.setText(artista.usa.nombre);
-                        _salida_canto.setText(artista.cuando.tipo);
+            if (evt.getStateChange() == ItemEvent.SELECTED) {
+                if (jComboBox1.getSelectedIndex() > 0) {
+                    if (jComboBox1.getSelectedIndex() == 1) {
+                        ArrayList<Artista> art = conn.getGestorArtista().getDatos();
+                        for (Artista artista : art) {
+                            if (_artistas.getSelectedItem().equals(artista.nombre)) {
+                                _salida_nacimiento.setText(String.valueOf(artista.fechaNacimiento));
+                                _salida_instrumento.setText(artista.usa.nombre);
+                                _salida_canto.setText(artista.cuando.tipo);
+                            }
+                        }
                     }
+                    if (jComboBox1.getSelectedIndex() == 2) {
+                        ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
+                        String[] arreglo2 = convertirArrayArregloGallo(gallos);
+                        this._artistas.setModel(new DefaultComboBoxModel(arreglo2));
+                    }
+                    if (jComboBox1.getSelectedIndex() == 3) {
+                        ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
+                        String[] arreglo3 = convertirArrayArregloCanario(canarios);
+                        this._artistas.setModel(new DefaultComboBoxModel(arreglo3));
+                    }
+                } else {
+                    String[] arreglo = {""};
+                    this._artistas.setModel(new DefaultComboBoxModel(arreglo));
                 }
-
             }
-//                    if (jComboBox1.getSelectedIndex()==2) {
-//                        ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
-//                        String[] arreglo2 = convertirArrayArregloGallo(gallos);
-//                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(arreglo2));
-//                    }
-//                    if (jComboBox1.getSelectedIndex()==3) {
-//                        ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
-//                        String[] arreglo3 = convertirArrayArregloCanario(canarios);
-//                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(arreglo3));
-//                    }
         } catch (Exception ex) {
             System.out.println("Error" + ex.getMessage());
         }
+
     }//GEN-LAST:event__artistasItemStateChanged
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
@@ -245,7 +257,7 @@ public class Elegir extends javax.swing.JFrame {
                         String[] arreglo3 = convertirArrayArregloCanario(canarios);
                         this._artistas.setModel(new DefaultComboBoxModel(arreglo3));
                     }
-                }else{
+                } else {
                     String[] arreglo = {""};
                     this._artistas.setModel(new DefaultComboBoxModel(arreglo));
                 }
