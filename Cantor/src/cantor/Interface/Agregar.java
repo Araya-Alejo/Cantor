@@ -270,19 +270,20 @@ public class Agregar extends javax.swing.JFrame {
                 Artista artista;
                 Momento momento = new Momento();
                 momento.tipo = String.valueOf(_momento.getSelectedItem());
-                System.out.println(momento.tipo);
+                //System.out.println(momento.tipo);
                 if (String.valueOf(ingreso_LISTA_INSTRUMENTOS.getSelectedItem()).equals("SI")) {
                     Instrumento instrumento = new Instrumento(String.valueOf(_instrumento_seleccionado.getSelectedItem()));
-                    System.out.println(instrumento.nombre);
+                    //System.out.println(instrumento.nombre);
                     artista = new Artista(instrumento, ingreso_NOMBRE.getText(), nacimiento, momento);
                 } else {
                     Instrumento instrumento = new Instrumento("Mi voz");
-                    System.out.println(instrumento.nombre);
+                    //System.out.println(instrumento.nombre);
                     artista = new Artista(instrumento, ingreso_NOMBRE.getText(), nacimiento, momento);
                 }
 
                 conn.getGestorArtista().guardarDato(artista);
-                
+                System.exit(0);
+                util.MENSAJE("Se ha cargado correctamente");
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el artista" + e);
@@ -299,6 +300,8 @@ public class Agregar extends javax.swing.JFrame {
                 gallo = new Gallo(ingreso_NOMBRE.getText(), nacimiento, momento);
 
                 conn.getGestorGallo().guardarDato(gallo);
+                util.MENSAJE("Se ha cargado correctamente");
+                System.exit(0);
                 borrar_combo();
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el gallo" + e);
@@ -315,7 +318,9 @@ public class Agregar extends javax.swing.JFrame {
                 canario = new Canario(ingreso_NOMBRE.getText(), nacimiento, momento);
 
                 conn.getGestorCanario().guardarDato(canario);
+                System.exit(0);
                 borrar_combo();
+                util.MENSAJE("Se ha cargado correctamente");
             } catch (Exception e) {
                 util.MENSAJE("Error al guardar el canario" + e);
             }

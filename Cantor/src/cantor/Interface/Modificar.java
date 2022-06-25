@@ -277,30 +277,27 @@ public class Modificar extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-//        try{
-//            if(evt.getStateChange() == ItemEvent.SELECTED){
-//                Conector conn = new Conector();
-//                int seleccion = jComboBox1.getSelectedIndex();
-//                if (seleccion ==1) {
-//                    ArrayList<Artista> art = new ArrayList();
-//                    art = conn.mostrarArtistas();
-//                    _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloArtista(art)));
-//
-//                } else {
-//                    if (seleccion==2) {
-//                        ArrayList<Gallo> gallos = new ArrayList();
-//                        gallos = conn.mostrarGallos();
-//                        _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloGallo(gallos)));
-//                    } else {
-//                        ArrayList<Canario> canarios = new ArrayList();
-//                        canarios = conn.mostrarCanarios();
-//                        _LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloCanario(canarios)));
-//                    }
-//                }
-//            }
-//        }catch(Exception ex){
-//            System.out.println("Error"+ ex.getMessage());
-//        }
+        try{
+            if(evt.getStateChange() == ItemEvent.SELECTED){
+                
+                int seleccion = jComboBox1.getSelectedIndex();
+                if (seleccion ==1) {
+                    ArrayList<Artista> art = conn.getGestorArtista().getDatos();
+                    this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloArtista(art)));
+
+                } else {
+                    if (seleccion==2) {
+                        ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
+                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloGallo(gallos)));
+                    } else {
+                        ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
+                        this._LISTA_DE_ARTISTAS.setModel(new DefaultComboBoxModel(convertirArrayArregloCanario(canarios)));
+                    }
+                }
+            }
+        }catch(Exception ex){
+            System.out.println("Error"+ ex.getMessage());
+        }
         
         
     }//GEN-LAST:event_jComboBox1ItemStateChanged
