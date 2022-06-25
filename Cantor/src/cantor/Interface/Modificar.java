@@ -26,27 +26,30 @@ public class Modificar extends javax.swing.JFrame {
      * Creates new form Modificar
      */
     Conector conn = new Conector();
+    
     public Modificar() {
+        
         initComponents();
         setLocationRelativeTo(null);
         rellenarComboConductores_instrumentos(_instrumento_seleccionado);
         cargar_combo_momento(_momento);
+        
     }
     
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
 
         try {
+            ArrayList<Instrumento> instrumentos = new ArrayList();
             
-
-            ArrayList<Instrumento> instrumento = new ArrayList();
-            instrumento = conn.getGestorInstrumento().getDatos();
-
-            String nombre;
+            instrumentos = conn.getGestorInstrumento().getDatos();
+            System.out.println(instrumentos.size());
+            
             _instrumento_seleccionado.removeAllItems();
-            for (int i = 0; i < instrumento.size(); i++) {
-                nombre = instrumento.get(i).nombre;
-                _instrumento_seleccionado.addItem(nombre);
+            for (Instrumento instrumento : instrumentos) {
+                _instrumento_seleccionado.addItem(instrumento.nombre);
+                
             }
+            
         } catch (Exception e) {
             System.out.println("Error al cargar ComboBox\n\n" + e);
         } 

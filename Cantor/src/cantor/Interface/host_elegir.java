@@ -17,6 +17,7 @@ public class host_elegir extends javax.swing.JFrame {
      */
     Conector conn = new Conector();
     public host_elegir() {
+        
         initComponents();
         setLocationRelativeTo(null);
     }

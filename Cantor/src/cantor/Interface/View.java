@@ -23,6 +23,7 @@ public class View extends javax.swing.JFrame {
     Conector conn = new Conector();
     
     public View() {
+        
         initComponents();
         setLocationRelativeTo(null);
         

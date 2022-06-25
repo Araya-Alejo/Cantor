@@ -20,6 +20,7 @@ public class elegir_canario extends javax.swing.JFrame {
      */
     Conector conn = new Conector();
     public elegir_canario() {
+        
         initComponents();
         setLocationRelativeTo(null);
         rellenarComboConductores_instrumentos(_canario);

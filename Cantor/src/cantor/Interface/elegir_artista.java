@@ -21,6 +21,7 @@ public class elegir_artista extends javax.swing.JFrame {
      */
     Conector conn = new Conector();
     public elegir_artista() {
+        
         initComponents();
         setLocationRelativeTo(null);
         rellenarComboConductores_artista(_artistas);

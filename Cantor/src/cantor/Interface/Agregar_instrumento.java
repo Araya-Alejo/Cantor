@@ -19,6 +19,7 @@ public class Agregar_instrumento extends javax.swing.JFrame {
      */
     Conector conn = new Conector();
     public Agregar_instrumento() {
+        
         initComponents();
         setLocationRelativeTo(null);
         

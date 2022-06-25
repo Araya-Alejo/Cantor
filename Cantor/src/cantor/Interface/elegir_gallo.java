@@ -20,6 +20,7 @@ public class elegir_gallo extends javax.swing.JFrame {
      */
     Conector conn = new Conector();
     public elegir_gallo() {
+        
         initComponents();
         setLocationRelativeTo(null);
         rellenarComboConductores_instrumentos(_gallo);

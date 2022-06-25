@@ -169,7 +169,7 @@ public class Agregar extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(ingreso_NOMBRE, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(60, 60, 60))
@@ -213,16 +213,13 @@ public class Agregar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(_LISTA_TIPO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dia))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
@@ -266,8 +263,6 @@ public class Agregar extends javax.swing.JFrame {
             util.MENSAJE("Porfavor ingrese el valor faltante.");
             ingreso_NOMBRE.requestFocusInWindow();
         } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
-            
-
             try {
                 
                 String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
@@ -294,9 +289,6 @@ public class Agregar extends javax.swing.JFrame {
         } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
-
-            
-
             try {
                 
                 Gallo gallo;
@@ -313,9 +305,6 @@ public class Agregar extends javax.swing.JFrame {
         } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
 
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
-
-            
-
             try {
                 
                 Canario canario;

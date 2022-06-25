@@ -13,14 +13,6 @@ public class Artista extends SerCantor implements Serializable{
         this.usa = usa;
     }
 
-    
-
-    
-
-
-    
-    
-    
     public void cantar(){
         System.out.println("Artista Canta");
     }
