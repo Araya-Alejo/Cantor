@@ -12,6 +12,7 @@ import cantor.Gallo;
 import cantor.Instrumento;
 import cantor.Momento;
 import cantor.SerCantor;
+import java.awt.event.ItemEvent;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,10 @@ public class Agregar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         rellenarComboConductores_instrumentos(_instrumento_seleccionado);
         cargar_combo_momento(_momento);
+        
     }
+    
+    
     
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
 
@@ -384,8 +388,17 @@ public class Agregar extends javax.swing.JFrame {
 
     private void _LISTA_TIPOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__LISTA_TIPOItemStateChanged
         // TODO add your handling code here:
-
-
+        try {
+            if (evt.getStateChange() == ItemEvent.SELECTED) {
+                if (_LISTA_TIPO.getSelectedIndex() > 0) {
+                    if (_LISTA_TIPO.getSelectedIndex() != 1) {
+                        ingreso_LISTA_INSTRUMENTOS.setEnabled(false);
+                    }
+                }
+            }
+        }catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
     }//GEN-LAST:event__LISTA_TIPOItemStateChanged
 
     /**
