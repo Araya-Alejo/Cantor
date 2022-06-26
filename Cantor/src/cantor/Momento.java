@@ -2,7 +2,6 @@ package cantor;
 
 import java.io.Serializable;
 
-
 public class Momento implements Serializable{
     public String tipo;
     private boolean alegria;
@@ -21,7 +20,4 @@ public class Momento implements Serializable{
 
     public Momento() {
     }
-    
-    
-    
 }

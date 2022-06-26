@@ -1,13 +1,8 @@
 package cantor;
 
-
-
-
 import java.io.Serializable;
 import java.time.LocalDate;
-
 import java.time.Period;
-
 
 public abstract class SerCantor implements PuedeCantar, Serializable{
     public final String nombre;
@@ -25,8 +20,6 @@ public abstract class SerCantor implements PuedeCantar, Serializable{
         this.fechaNacimiento = fn;
         this.cuando = momento;
     }
-    
-    
     
     public abstract void hacerCantar(SerCantor objSC);
     
