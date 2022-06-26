@@ -219,14 +219,18 @@ public class Elegir extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if (jComboBox1.getSelectedIndex() == 1) {
-            util.MENSAJE("¡Artista Cantando!");
-        }
-        if (jComboBox1.getSelectedIndex() == 2) {
-            util.MENSAJE("¡Gallo Cantando!");
-        }
-        if (jComboBox1.getSelectedIndex() == 3) {
-            util.MENSAJE("¡Canario Cantando!");
+        if (jComboBox1.getSelectedIndex() > 0) {
+            if (jComboBox1.getSelectedIndex() == 1) {
+                util.MENSAJE("¡Artista Cantando!");
+            }
+            if (jComboBox1.getSelectedIndex() == 2) {
+                util.MENSAJE("¡Gallo Cantando!");
+            }
+            if (jComboBox1.getSelectedIndex() == 3) {
+                util.MENSAJE("¡Canario Cantando!");
+            }
+        }else{
+            util.MENSAJE("Seleccione un Cantor");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
