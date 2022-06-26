@@ -1,4 +1,4 @@
-package cantor.Interface;
+package cantor_Interface;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

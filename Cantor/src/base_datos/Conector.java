@@ -35,10 +35,10 @@ public class Conector {
         
         if(artistas.exists() && gallos.exists() && canarios.exists() && instrumentos.exists()){
             instanciaArchivos(artistas, gallos, canarios, instrumentos);
-            System.out.println("Se instancian los archivos");
+            //System.out.println("Se instancian los archivos");
         }else{
             creaArchivos();
-            System.out.println("Se crean los archivos");
+            //System.out.println("Se crean los archivos");
         }
     }
     

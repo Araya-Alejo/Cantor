@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package cantor.Interface;
+package cantor_Interface;
 
 import cantor.Instrumento;
 import base_datos.*;
@@ -98,6 +98,7 @@ public class Agregar_instrumento extends javax.swing.JFrame {
             Instrumento instrumento = new Instrumento(_instrumento.getText());
             conn.getGestorInstrumento().guardarDato(instrumento);
             util.MENSAJE("Instrumento guardado");
+            this.dispose();
         } catch (Exception e) {
             System.out.println("error" + e);
         }

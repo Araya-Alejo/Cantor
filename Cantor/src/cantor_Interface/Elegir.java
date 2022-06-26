@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package cantor.Interface;
+package cantor_Interface;
 
 import base_datos.Conector;
 import cantor.Artista;
@@ -130,6 +130,11 @@ public class Elegir extends javax.swing.JFrame {
         _salida_edad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         _salida_edad.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         _salida_edad.setEnabled(false);
+        _salida_edad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _salida_edadActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Edad");
 
@@ -229,6 +234,7 @@ public class Elegir extends javax.swing.JFrame {
                         for (Artista artista : art) {
                             if (_artistas.getSelectedItem().equals(artista.nombre)) {
                                 _salida_nacimiento.setText(String.valueOf(artista.fechaNacimiento));
+                                _salida_edad.setText(String.valueOf(artista.calcularEdad()));
                                 _salida_instrumento.setText(artista.usa.nombre);
                                 _salida_canto.setText(artista.cuando.tipo);
                             }
@@ -239,7 +245,9 @@ public class Elegir extends javax.swing.JFrame {
                         for (Gallo gallo : gallos) {
                             if (_artistas.getSelectedItem().equals(gallo.nombre)) {
                                 _salida_nacimiento.setText(String.valueOf(gallo.fechaNacimiento));
+                                _salida_edad.setText(String.valueOf(gallo.calcularEdad()));
                                 _salida_canto.setText(gallo.cuando.tipo);
+                                _salida_instrumento.setText("No aplica");
                             }
                         }
                     }
@@ -248,7 +256,9 @@ public class Elegir extends javax.swing.JFrame {
                         for (Canario canario : canarios) {
                             if (_artistas.getSelectedItem().equals(canario.nombre)) {
                                 _salida_nacimiento.setText(String.valueOf(canario.fechaNacimiento));
+                                _salida_edad.setText(String.valueOf(canario.calcularEdad()));
                                 _salida_canto.setText(canario.cuando.tipo);
+                                _salida_instrumento.setText("No aplica");
                             }
                         }
                     }
@@ -318,6 +328,10 @@ public class Elegir extends javax.swing.JFrame {
         return arreglo;
 
     }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void _salida_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__salida_edadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event__salida_edadActionPerformed
 
     /**
      * @param args the command line arguments
