@@ -48,6 +48,7 @@
                       </Group>
                       <Component id="jLabel6" alignment="0" pref="348" max="32767" attributes="0"/>
                       <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                      <Component id="_salida_nacimiento" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel28" max="32767" attributes="0"/>
@@ -62,16 +63,13 @@
                           </Group>
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="_salida_canto" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btn_modificacion" min="-2" pref="146" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="_ELIMINAR_" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="_salida_instrumento" alignment="0" max="32767" attributes="0"/>
+                      <Component id="_salida_instrumento" alignment="0" max="32767" attributes="0"/>
+                      <Component id="_salida_canto" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btn_modificacion" min="-2" pref="146" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="_ELIMINAR_" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="_salida_nacimiento" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>

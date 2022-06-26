@@ -27,6 +27,7 @@ public class Modificar extends javax.swing.JFrame {
      * Creates new form Modificar
      */
     Conector conn = new Conector();
+    
 
     public Modificar() {
 
@@ -153,6 +154,7 @@ public class Modificar extends javax.swing.JFrame {
                         .addGap(172, 172, 172))
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(_salida_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -164,13 +166,12 @@ public class Modificar extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(41, 41, 41))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(_salida_instrumento, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(_salida_canto, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(btn_modificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(_ELIMINAR_, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(_salida_instrumento, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(_salida_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(_ELIMINAR_, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,37 +275,42 @@ public class Modificar extends javax.swing.JFrame {
 
     private void btn_modificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificacionActionPerformed
         // TODO add your handling code here:
-        
+
         if (_tipos_artistas.getSelectedIndex() > 0) {
-                    if (_tipos_artistas.getSelectedIndex() == 1) {
-                        ArrayList<Artista> art = conn.getGestorArtista().getDatos();
-                        for (Artista artista : art) {
-                            if (_lista_artistas.getSelectedItem().equals(artista.nombre)) {
-                                Artista mod = artista;
-                            }
-                        }
+            if (_tipos_artistas.getSelectedIndex() == 1) {
+                ArrayList<Artista> art = conn.getGestorArtista().getDatos();
+                for (Artista artista : art) {
+                    if (_lista_artistas.getSelectedItem().equals(artista.nombre)) {
+                        Modificar_cantor window = new Modificar_cantor(artista,null, null, 1);
+                        window.setVisible(true);
+                        this.dispose();
                     }
-                    if (_tipos_artistas.getSelectedIndex() == 2) {
-                        ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
-                        for (Gallo gallo : gallos) {
-                            if (_lista_artistas.getSelectedItem().equals(gallo.nombre)) {
-                                Gallo mod = gallo;
-                                
-                            }
-                        }
-                    }
-                    if (_tipos_artistas.getSelectedIndex() == 3) {
-                        ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
-                        for (Canario canario : canarios) {
-                            if (_lista_artistas.getSelectedItem().equals(canario.nombre)) {
-                                Canario mod = canario;
-                            }
-                        }
-                    }
-                } else {
-                    util.MENSAJE("Se debe seleccionar un artista");
                 }
-        
+            }
+            if (_tipos_artistas.getSelectedIndex() == 2) {
+                ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
+                for (Gallo gallo : gallos) {
+                    if (_lista_artistas.getSelectedItem().equals(gallo.nombre)) {
+                        Modificar_cantor window = new Modificar_cantor(null,gallo, null, 2);
+                        window.setVisible(true);
+                        this.dispose();
+                    }
+                }
+            }
+            if (_tipos_artistas.getSelectedIndex() == 3) {
+                ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
+                for (Canario canario : canarios) {
+                    if (_lista_artistas.getSelectedItem().equals(canario.nombre)) {
+                        Modificar_cantor window = new Modificar_cantor(null,null, canario, 3);
+                        window.setVisible(true);
+                        this.dispose();
+                    }
+                }
+            }
+        } else {
+            util.MENSAJE("Se debe seleccionar un artista");
+        }
+
     }//GEN-LAST:event_btn_modificacionActionPerformed
 
     private void _ELIMINAR_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__ELIMINAR_ActionPerformed
@@ -329,7 +335,7 @@ public class Modificar extends javax.swing.JFrame {
                                 conn.getGestorGallo().borrarDato(gallo);
                                 util.MENSAJE("Gallo borrado");
                                 this.dispose();
-                                
+
                             }
                         }
                     }
