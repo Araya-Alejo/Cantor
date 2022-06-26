@@ -370,6 +370,7 @@ public class Agregar extends javax.swing.JFrame {
 
         var elegir = new Agregar_instrumento();
         elegir.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
 

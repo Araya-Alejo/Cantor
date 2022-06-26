@@ -98,7 +98,10 @@ public class Agregar_instrumento extends javax.swing.JFrame {
             Instrumento instrumento = new Instrumento(_instrumento.getText());
             conn.getGestorInstrumento().guardarDato(instrumento);
             util.MENSAJE("Instrumento guardado");
+            Agregar ventana = new Agregar();
+            ventana.setVisible(true);
             this.dispose();
+            
         } catch (Exception e) {
             System.out.println("error" + e);
         }
