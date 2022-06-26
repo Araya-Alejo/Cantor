@@ -43,33 +43,35 @@
                           <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel28" max="32767" attributes="0"/>
-                              <Component id="_LISTA_DE_ARTISTAS" max="32767" attributes="0"/>
-                              <Component id="jComboBox1" pref="307" max="32767" attributes="0"/>
-                              <Component id="_salida_instrumento" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btn_modificacion" min="-2" pref="146" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="_ELIMINAR_" min="-2" pref="150" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="_salida_canto" max="32767" attributes="0"/>
+                      <Component id="jLabel6" alignment="0" pref="348" max="32767" attributes="0"/>
+                      <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel28" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="_salida_edad" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="_lista_artistas" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="_tipos_artistas" alignment="0" pref="302" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="_salida_nacimiento" alignment="0" max="32767" attributes="0"/>
-                          <Component id="_salida_edad" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel6" alignment="0" pref="307" max="32767" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                          <Component id="_salida_canto" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btn_modificacion" min="-2" pref="146" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="_ELIMINAR_" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="_salida_instrumento" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="_salida_nacimiento" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -80,9 +82,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                  <Component id="_tipos_artistas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="_LISTA_DE_ARTISTAS" min="-2" max="-2" attributes="0"/>
+                  <Component id="_lista_artistas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -129,7 +131,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modificacionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="_LISTA_DE_ARTISTAS">
+        <Component class="javax.swing.JComboBox" name="_lista_artistas">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -138,8 +140,8 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="_LISTA_DE_ARTISTASItemStateChanged"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_LISTA_DE_ARTISTASActionPerformed"/>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="_lista_artistasItemStateChanged"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_lista_artistasActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -153,7 +155,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_ELIMINAR_ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="_tipos_artistas">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -169,8 +171,8 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
           </AccessibilityProperties>
           <Events>
-            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBox1ItemStateChanged"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="_tipos_artistasItemStateChanged"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_tipos_artistasActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -196,16 +198,31 @@
         <Component class="javax.swing.JTextField" name="_salida_nacimiento">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="_salida_edad">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_salida_edadActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_salida_instrumento">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_salida_instrumentoActionPerformed"/>
@@ -214,6 +231,10 @@
         <Component class="javax.swing.JTextField" name="_salida_canto">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
