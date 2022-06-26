@@ -283,6 +283,7 @@ public class Modificar extends javax.swing.JFrame {
                     if (_lista_artistas.getSelectedItem().equals(artista.nombre)) {
                         Modificar_cantor window = new Modificar_cantor(artista,null, null, 1);
                         window.setVisible(true);
+                        this.setVisible(false);
                         this.dispose();
                     }
                 }
@@ -293,6 +294,7 @@ public class Modificar extends javax.swing.JFrame {
                     if (_lista_artistas.getSelectedItem().equals(gallo.nombre)) {
                         Modificar_cantor window = new Modificar_cantor(null,gallo, null, 2);
                         window.setVisible(true);
+                        this.setVisible(false);
                         this.dispose();
                     }
                 }
@@ -303,6 +305,7 @@ public class Modificar extends javax.swing.JFrame {
                     if (_lista_artistas.getSelectedItem().equals(canario.nombre)) {
                         Modificar_cantor window = new Modificar_cantor(null,null, canario, 3);
                         window.setVisible(true);
+                        this.setVisible(false);
                         this.dispose();
                     }
                 }

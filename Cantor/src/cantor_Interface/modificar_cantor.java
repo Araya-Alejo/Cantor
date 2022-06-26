@@ -48,25 +48,16 @@ public class Modificar_cantor extends javax.swing.JFrame {
     public void obtener_datos() {
         switch(this.tipo){
             case 1:
-                if(conn.getGestorArtista().existeDato(this.artMod)){
-                    conn.getGestorArtista().borrarDato(this.artMod);
-                }
                 _salida_nombre.setText(this.artMod.nombre);
                 _salida_tipo.setText("Artista");
                 _salida_fechaN.setText(this.artMod.fechaNacimiento.toString());
                 break;
             case 2:
-                if(conn.getGestorGallo().existeDato(this.galloMod)){
-                    conn.getGestorGallo().borrarDato(this.galloMod);
-                }
                 _salida_nombre.setText(this.galloMod.nombre);
                 _salida_tipo.setText("Gallo");
                 _salida_fechaN.setText(this.galloMod.fechaNacimiento.toString());
                 break;
             case 3:
-                if(conn.getGestorCanario().existeDato(this.canMod)){
-                    conn.getGestorCanario().borrarDato(this.canMod);
-                }
                 _salida_nombre.setText(this.canMod.nombre);
                 _salida_tipo.setText("Canario");
                 _salida_fechaN.setText(this.canMod.fechaNacimiento.toString());
@@ -264,6 +255,12 @@ public class Modificar_cantor extends javax.swing.JFrame {
         Modificar ventana;
         switch(this.tipo){
             case 1:
+                ArrayList<Artista> art = conn.getGestorArtista().getDatos();
+                for (Artista artista : art) {
+                    if (this.artMod.nombre.equalsIgnoreCase(artista.nombre)) {
+                        conn.getGestorArtista().borrarDato(artista);
+                    }
+                }
                 mom.tipo= String.valueOf(_momento.getSelectedItem());
                 ArrayList<Instrumento> instrumentos = conn.getGestorInstrumento().getDatos();
                 for (Instrumento instrumento : instrumentos) {
@@ -272,13 +269,20 @@ public class Modificar_cantor extends javax.swing.JFrame {
                     }
                 }
                 this.artMod.cuando =mom;
-                conn.getGestorArtista().guardarDato(artMod);
+                //conn.getGestorArtista().borrarDato(artMod);
+                //conn.getGestorArtista().guardarDato(artMod);
                 util.MENSAJE("¡Artista modificado!");
                 ventana = new Modificar();
                 ventana.setVisible(true);
                 this.dispose();
                 break;
             case 2:
+                ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
+                for (Gallo gallo : gallos) {
+                    if (this.artMod.nombre.equalsIgnoreCase(gallo.nombre)) {
+                        conn.getGestorGallo().borrarDato(gallo);
+                    }
+                }
                 mom.tipo= String.valueOf(_momento.getSelectedItem());
                 this.galloMod.cuando =mom;
                 conn.getGestorGallo().guardarDato(galloMod);
@@ -288,6 +292,12 @@ public class Modificar_cantor extends javax.swing.JFrame {
                 this.dispose();
                 break;
             case 3:
+                ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
+                for (Canario canario : canarios) {
+                    if (this.artMod.nombre.equalsIgnoreCase(canario.nombre)) {
+                        conn.getGestorCanario().borrarDato(canario);
+                    }
+                }
                 mom.tipo= String.valueOf(_momento.getSelectedItem());
                 this.canMod.cuando =mom;
                 conn.getGestorCanario().guardarDato(canMod);
