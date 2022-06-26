@@ -4,6 +4,7 @@
  */
 package cantor_Interface;
 
+import Util.util;
 import base_datos.Conector;
 import cantor.Artista;
 import cantor.Canario;
@@ -218,6 +219,15 @@ public class Elegir extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if (jComboBox1.getSelectedIndex() == 1) {
+            util.MENSAJE("¡Artista Cantando!");
+        }
+        if (jComboBox1.getSelectedIndex() == 2) {
+            util.MENSAJE("¡Gallo Cantando!");
+        }
+        if (jComboBox1.getSelectedIndex() == 3) {
+            util.MENSAJE("¡Canario Cantando!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void _artistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__artistasActionPerformed
