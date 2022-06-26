@@ -41,6 +41,8 @@ public class Agregar_instrumento extends javax.swing.JFrame {
         _instrumento = new javax.swing.JTextField();
         btn_agregar_instrumento = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jLabel1.setText("Agregar instrumentos a la base de datos");
 
         btn_agregar_instrumento.setText("Agregar instrumento");
