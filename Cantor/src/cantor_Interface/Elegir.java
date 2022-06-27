@@ -12,36 +12,14 @@ import javax.swing.JComboBox;
 
 public class Elegir extends javax.swing.JFrame {
 
+    /*Instanciamos el un objeto de la clase Conector para poder tener acceso a los gestores de archivos*/
     Conector conn = new Conector();
 
+    /*Constructor de la ventana en donde se cargaran los metodos que cargan los datos que se mostraran
+    inmediatamente cuando se abra la ventana*/
     public Elegir() {
-
         initComponents();
-
         setLocationRelativeTo(null);
-        rellenarComboConductores_artista(_artistas);
-        String[] arreglo = {""};
-        this._artistas.setModel(new DefaultComboBoxModel(arreglo));
-    }
-
-    public void rellenarComboConductores_instrumentos(JComboBox _artistas) {
-    }
-
-    public void rellenarComboConductores_artista(JComboBox _artistas) {
-        ArrayList<Artista> artistas = new ArrayList();
-        artistas = conn.getGestorArtista().getDatos();
-        String nombre;
-        _artistas.removeAllItems();
-        try {
-            _artistas.removeAllItems();
-            for (int i = 0; i < artistas.size(); i++) {
-                nombre = artistas.get(i).nombre;
-                _artistas.addItem(nombre);
-            }
-        } catch (Exception e) {
-            System.out.println("Error al cargar ComboBox\n\n" + e);
-        }
-
     }
 
     @SuppressWarnings("unchecked")
@@ -197,8 +175,8 @@ public class Elegir extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Metodo para mostrar un mensaje al usuario segun el canto*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         if (jComboBox1.getSelectedIndex() > 0) {
             if (jComboBox1.getSelectedIndex() == 1) {
                 util.MENSAJE("¡Artista Cantando!");
@@ -217,12 +195,15 @@ public class Elegir extends javax.swing.JFrame {
     private void _artistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__artistasActionPerformed
 
     }//GEN-LAST:event__artistasActionPerformed
-
+    
+    /*con este metodo se interrelacionan los combo box para que se muestren datos segun lo que se seleccione*/
     private void _artistasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__artistasItemStateChanged
         try {
             if (evt.getStateChange() == ItemEvent.SELECTED) {
                 if (jComboBox1.getSelectedIndex() > 0) {
                     if (jComboBox1.getSelectedIndex() == 1) {
+                        /*si se selecciona tipo artistas y un artista en especifico, 
+                        se muestran todos sus datos*/
                         ArrayList<Artista> art = conn.getGestorArtista().getDatos();
                         for (Artista artista : art) {
                             if (_artistas.getSelectedItem().equals(artista.nombre)) {
@@ -233,6 +214,8 @@ public class Elegir extends javax.swing.JFrame {
                             }
                         }
                     }
+                    /*si se selecciona tipo gallos y un gallo en especifico, 
+                        se muestran todos sus datos*/
                     if (jComboBox1.getSelectedIndex() == 2) {
                         ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
                         for (Gallo gallo : gallos) {
@@ -244,6 +227,8 @@ public class Elegir extends javax.swing.JFrame {
                             }
                         }
                     }
+                    /*si se selecciona tipo canarios y un canario en especifico, 
+                        se muestran todos sus datos*/
                     if (jComboBox1.getSelectedIndex() == 3) {
                         ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
                         for (Canario canario : canarios) {
@@ -265,21 +250,25 @@ public class Elegir extends javax.swing.JFrame {
         }
     }//GEN-LAST:event__artistasItemStateChanged
 
+    /*con este metodo se interrelacionan los combo box para que se muestren datos segun lo que se seleccione*/
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         try {
             if (evt.getStateChange() == ItemEvent.SELECTED) {
                 if (jComboBox1.getSelectedIndex() > 0) {
                     if (jComboBox1.getSelectedIndex() == 1) {
+                        /*si se selecciona artista, se muestran todos los artistas y sus datos en el otro combo box*/
                         ArrayList<Artista> art = conn.getGestorArtista().getDatos();
                         String[] arreglo1 = convertirArrayArregloArtista(art);
                         this._artistas.setModel(new DefaultComboBoxModel(arreglo1));
                     }
                     if (jComboBox1.getSelectedIndex() == 2) {
+                        /*si se selecciona gallo, se muestran todos los artistas y sus datos en el otro combo box*/
                         ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
                         String[] arreglo2 = convertirArrayArregloGallo(gallos);
                         this._artistas.setModel(new DefaultComboBoxModel(arreglo2));
                     }
                     if (jComboBox1.getSelectedIndex() == 3) {
+                        /*si se selecciona canario, se muestran todos los artistas y sus datos en el otro combo box*/
                         ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
                         String[] arreglo3 = convertirArrayArregloCanario(canarios);
                         this._artistas.setModel(new DefaultComboBoxModel(arreglo3));
@@ -295,6 +284,7 @@ public class Elegir extends javax.swing.JFrame {
 
     }
 
+    /*este metodo se utilizó para guardar todos los nombres de los artistas en un arreglo*/
     public String[] convertirArrayArregloArtista(ArrayList<Artista> array) {
         String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {
@@ -303,6 +293,7 @@ public class Elegir extends javax.swing.JFrame {
         return arreglo;
     }
 
+    /*este metodo se utilizó para guardar todos los nombres de los gallos en un arreglo*/
     public String[] convertirArrayArregloGallo(ArrayList<Gallo> array) {
         String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {
@@ -311,6 +302,7 @@ public class Elegir extends javax.swing.JFrame {
         return arreglo;
     }
 
+    /*este metodo se utilizó para guardar todos los nombres de los canarios en un arreglo*/
     public String[] convertirArrayArregloCanario(ArrayList<Canario> array) {
         String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {

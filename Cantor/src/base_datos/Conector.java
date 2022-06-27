@@ -1,7 +1,5 @@
 package base_datos;
 
-
-
 import cantor.Artista;
 import cantor.Canario;
 import cantor.Gallo;
@@ -9,17 +7,22 @@ import cantor.Instrumento;
 import java.io.File;
 
 public class Conector {
+    
+    //se crea esta clase con estos atributos para generar un gestor de archivos por cada archivo que vamos a tener
     private GestorFicheroSerializado<Artista> gestorArtista = null;
     private GestorFicheroSerializado<Gallo> gestorGallo = null;
     private GestorFicheroSerializado<Canario> gestorCanario = null;
     private GestorFicheroSerializado<Instrumento> gestorInstrumento = null;
 
+    //solo si el archivo existe, se instancia
     public void instanciaArchivos(File artistas, File gallos, File canarios, File instrumentos){
         this.gestorArtista = new GestorFicheroSerializado(artistas);
         this.gestorGallo = new GestorFicheroSerializado(gallos);
         this.gestorCanario = new GestorFicheroSerializado(canarios);
         this.gestorInstrumento = new GestorFicheroSerializado(instrumentos);
     }
+    
+    //se crean los archivos si no lo estan
     public void creaArchivos(){
         this.gestorArtista = new GestorFicheroSerializado("artistas.ddr");
         this.gestorGallo = new GestorFicheroSerializado("gallos.ddr");
@@ -27,6 +30,8 @@ public class Conector {
         this.gestorInstrumento = new GestorFicheroSerializado("instrumentos.ddr");
     }
     
+    /* en el siguiente constructor se instancian los ficheros y se indica mediante un if si estan creados o no para llamar 
+    1 de los 2 metodos anteriores */
     public Conector() {
         File artistas = new File("artistas.drr");
         File gallos = new File("gallos.drr");
@@ -42,6 +47,7 @@ public class Conector {
         }
     }
     
+    //Setters y Getters
     public GestorFicheroSerializado<Artista> getGestorArtista() {
         return gestorArtista;
     }

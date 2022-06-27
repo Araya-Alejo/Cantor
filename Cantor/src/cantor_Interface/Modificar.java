@@ -12,8 +12,11 @@ import Util.util;
 
 public class Modificar extends javax.swing.JFrame {
 
+    /*Instanciamos el un objeto de la clase Conector para poder tener acceso a los gestores de archivos*/
     Conector conn = new Conector();
     
+    /*Constructor de la ventana en donde se cargaran los metodos que cargan los datos que se mostraran
+    inmediatamente cuando se abra la ventana*/
     public Modificar() {
         initComponents();
         setLocationRelativeTo(null);
@@ -198,11 +201,14 @@ public class Modificar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*con este metodo se interrelacionan los combo box para que se muestren datos segun lo que se seleccione*/
     private void _lista_artistasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__lista_artistasItemStateChanged
         try {
             if (evt.getStateChange() == ItemEvent.SELECTED) {
                 if (_tipos_artistas.getSelectedIndex() > 0) {
                     if (_tipos_artistas.getSelectedIndex() == 1) {
+                        /*si se selecciona tipo artistas y un artista en especifico, 
+                        se muestran todos sus datos*/
                         ArrayList<Artista> art = conn.getGestorArtista().getDatos();
                         for (Artista artista : art) {
                             if (_lista_artistas.getSelectedItem().equals(artista.nombre)) {
@@ -214,6 +220,8 @@ public class Modificar extends javax.swing.JFrame {
                         }
                     }
                     if (_tipos_artistas.getSelectedIndex() == 2) {
+                        /*si se selecciona tipo gallos y un gallo en especifico, 
+                        se muestran todos sus datos*/
                         ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
                         for (Gallo gallo : gallos) {
                             if (_lista_artistas.getSelectedItem().equals(gallo.nombre)) {
@@ -225,6 +233,8 @@ public class Modificar extends javax.swing.JFrame {
                         }
                     }
                     if (_tipos_artistas.getSelectedIndex() == 3) {
+                        /*si se selecciona tipo canarios y un canario en especifico, 
+                        se muestran todos sus datos*/
                         ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
                         for (Canario canario : canarios) {
                             if (_lista_artistas.getSelectedItem().equals(canario.nombre)) {
@@ -249,9 +259,12 @@ public class Modificar extends javax.swing.JFrame {
         
     }//GEN-LAST:event__lista_artistasActionPerformed
 
+    /*con este metodo, pasamos los datos necesarios para modificarlos a la siguiente ventana*/
     private void btn_modificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificacionActionPerformed
         if (_tipos_artistas.getSelectedIndex() > 0) {
             if (_tipos_artistas.getSelectedIndex() == 1) {
+                /*si es tipo artista, pasamos el objeto elegido, abrimos la siguiente
+                interfaz donde se modificaran y cerramos esta*/
                 ArrayList<Artista> art = conn.getGestorArtista().getDatos();
                 for (Artista artista : art) {
                     if (_lista_artistas.getSelectedItem().equals(artista.nombre)) {
@@ -263,6 +276,8 @@ public class Modificar extends javax.swing.JFrame {
                 }
             }
             if (_tipos_artistas.getSelectedIndex() == 2) {
+                /*si es tipo gallo, pasamos el objeto elegido, abrimos la siguiente
+                interfaz donde se modificaran y cerramos esta*/
                 ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
                 for (Gallo gallo : gallos) {
                     if (_lista_artistas.getSelectedItem().equals(gallo.nombre)) {
@@ -274,6 +289,8 @@ public class Modificar extends javax.swing.JFrame {
                 }
             }
             if (_tipos_artistas.getSelectedIndex() == 3) {
+                /*si es tipo canario, pasamos el objeto elegido, abrimos la siguiente
+                interfaz donde se modificaran y cerramos esta*/
                 ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
                 for (Canario canario : canarios) {
                     if (_lista_artistas.getSelectedItem().equals(canario.nombre)) {
@@ -289,12 +306,14 @@ public class Modificar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_modificacionActionPerformed
 
+    /*con este metodo, eliminamos un cantor elegido por el usuario*/
     private void _ELIMINAR_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__ELIMINAR_ActionPerformed
         int eleccion = JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar el artista", "", JOptionPane.YES_NO_OPTION);
         try {
             if (eleccion == JOptionPane.YES_OPTION) {
                 if (_tipos_artistas.getSelectedIndex() > 0) {
                     if (_tipos_artistas.getSelectedIndex() == 1) {
+                        /*si es de tipo artista se busca el dato elegido y se borra*/
                         ArrayList<Artista> art = conn.getGestorArtista().getDatos();
                         for (Artista artista : art) {
                             if (_lista_artistas.getSelectedItem().equals(artista.nombre)) {
@@ -305,6 +324,7 @@ public class Modificar extends javax.swing.JFrame {
                         }
                     }
                     if (_tipos_artistas.getSelectedIndex() == 2) {
+                        /*si es de tipo gallo se busca el dato elegido y se borra*/
                         ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
                         for (Gallo gallo : gallos) {
                             if (_lista_artistas.getSelectedItem().equals(gallo.nombre)) {
@@ -316,6 +336,7 @@ public class Modificar extends javax.swing.JFrame {
                         }
                     }
                     if (_tipos_artistas.getSelectedIndex() == 3) {
+                        /*si es de tipo canario se busca el dato elegido y se borra*/
                         ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
                         for (Canario canario : canarios) {
                             if (_lista_artistas.getSelectedItem().equals(canario.nombre)) {
@@ -340,22 +361,26 @@ public class Modificar extends javax.swing.JFrame {
     
     }//GEN-LAST:event__tipos_artistasActionPerformed
 
+    /*con este metodo se interrelacionan los combo box para que se muestren datos segun lo que se seleccione*/
     private void _tipos_artistasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__tipos_artistasItemStateChanged
         try {
             if (evt.getStateChange() == ItemEvent.SELECTED) {
                 if (_tipos_artistas.getSelectedIndex() > 0) {
                     if (_tipos_artistas.getSelectedIndex() == 1) {
+                        /*si se selecciona artista, se muestran todos los artistas y sus datos en el otro combo box*/
                         ArrayList<Artista> art = conn.getGestorArtista().getDatos();
                         String[] arreglo1 = convertirArrayArregloArtista(art);
                         this._lista_artistas.setModel(new DefaultComboBoxModel(arreglo1));
 
                     }
                     if (_tipos_artistas.getSelectedIndex() == 2) {
+                        /*si se selecciona gallo, se muestran todos los artistas y sus datos en el otro combo box*/
                         ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
                         String[] arreglo2 = convertirArrayArregloGallo(gallos);
                         this._lista_artistas.setModel(new DefaultComboBoxModel(arreglo2));
                     }
                     if (_tipos_artistas.getSelectedIndex() == 3) {
+                        /*si se selecciona canario, se muestran todos los artistas y sus datos en el otro combo box*/
                         ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
                         String[] arreglo3 = convertirArrayArregloCanario(canarios);
                         this._lista_artistas.setModel(new DefaultComboBoxModel(arreglo3));
@@ -377,6 +402,7 @@ public class Modificar extends javax.swing.JFrame {
         
     }//GEN-LAST:event__salida_edadActionPerformed
 
+    /*este metodo se utilizó para guardar todos los nombres de los artistas en un arreglo*/
     public String[] convertirArrayArregloArtista(ArrayList<Artista> array) {
         String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {
@@ -385,6 +411,7 @@ public class Modificar extends javax.swing.JFrame {
         return arreglo;
     }
 
+    /*este metodo se utilizó para guardar todos los nombres de los gallos en un arreglo*/
     public String[] convertirArrayArregloGallo(ArrayList<Gallo> array) {
         String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {
@@ -393,6 +420,7 @@ public class Modificar extends javax.swing.JFrame {
         return arreglo;
     }
 
+    /*este metodo se utilizó para guardar todos los nombres de los canarios en un arreglo*/
     public String[] convertirArrayArregloCanario(ArrayList<Canario> array) {
         String[] arreglo = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {

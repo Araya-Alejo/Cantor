@@ -13,8 +13,11 @@ import javax.swing.JComboBox;
 
 public class Agregar extends javax.swing.JFrame {
 
+    /*Instanciamos el un objeto de la clase Conector para poder tener acceso a los gestores de archivos*/
     Conector conn = new Conector();
 
+    /*Constructor de la ventana en donde se cargaran los metodos que cargan los datos que se mostraran
+    inmediatamente cuando se abra la ventana*/
     public Agregar() {
         initComponents();
         setLocationRelativeTo(null);
@@ -23,13 +26,18 @@ public class Agregar extends javax.swing.JFrame {
         
     }
     
+    /*Metodo para poder llenar el Combo Box de los instrumentos, conectandose con el archivo que los guarda*/
     public void rellenarComboConductores_instrumentos(JComboBox _instrumento_seleccionado) {
         try {
             ArrayList<Instrumento> instrumento = new ArrayList();
+            /*con el metodo getDatos del gestor de archivos especifico para los instrumentos, 
+            se guardan en el arrayList*/
             instrumento = conn.getGestorInstrumento().getDatos();
 
             String nombre;
+            /*se limpia el combo box*/
             _instrumento_seleccionado.removeAllItems();
+            /*se añaden los nombres de los instrumentos al combo box*/
             for (int i = 0; i < instrumento.size(); i++) {
                 nombre = instrumento.get(i).nombre;
                 _instrumento_seleccionado.addItem(nombre);
@@ -224,11 +232,12 @@ public class Agregar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingreso_LISTA_INSTRUMENTOSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ingreso_LISTA_INSTRUMENTOSItemStateChanged
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ingreso_LISTA_INSTRUMENTOSItemStateChanged
 
+    /*con este metodo se habilita o no la opcion de instrumentos, se hara mediante un si o no en un combo box*/
     private void ingreso_LISTA_INSTRUMENTOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_LISTA_INSTRUMENTOSActionPerformed
-        // TODO add your handling code here:
+        
         if (ingreso_LISTA_INSTRUMENTOS.getSelectedItem().equals("NO")) {
             _instrumento_seleccionado.setEnabled(false);
             btn_agregar_instrumento.setEnabled(false);
@@ -237,12 +246,14 @@ public class Agregar extends javax.swing.JFrame {
             btn_agregar_instrumento.setEnabled(true);
         }
     }//GEN-LAST:event_ingreso_LISTA_INSTRUMENTOSActionPerformed
-
+    /*con este metodo se verifican los datos y se obtienen para cargar el cantor al fichero
+    segun el tipo que sea*/
     private void btn_ingresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresar2ActionPerformed
         if (ingreso_NOMBRE.getText().equals("")) {
             util.MENSAJE("Porfavor ingrese el valor faltante.");
             ingreso_NOMBRE.requestFocusInWindow();
         } else if (_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
+            /*si se selecciona artista se verifican los datos y se ingresa en el fichero*/
             try {
                 String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
                 Artista artista;
@@ -266,6 +277,7 @@ public class Agregar extends javax.swing.JFrame {
                 util.MENSAJE("Error al guardar el artista" + e);
             }
         } else if (_LISTA_TIPO.getSelectedItem().equals("GALLO")) {
+            /*si es gallo se verifican los datos y se ingresa en el fichero*/
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
             try {
                 Gallo gallo;
@@ -280,6 +292,7 @@ public class Agregar extends javax.swing.JFrame {
                 util.MENSAJE("Error al guardar el gallo" + e);
             }
         } else if (_LISTA_TIPO.getSelectedItem().equals("CANARIO")) {
+            /*si es canario se verifican los datos y se ingresa en el fichero*/
             String nacimiento = String.valueOf(dia.getSelectedItem()) + String.valueOf(mes.getSelectedItem()) + String.valueOf(ano.getSelectedItem());
             try {
                 Canario canario;
@@ -295,11 +308,13 @@ public class Agregar extends javax.swing.JFrame {
             }
         }        
     }//GEN-LAST:event_btn_ingresar2ActionPerformed
-
+    
+     /*se borran todos los items del combo que contienen los momentos*/
     public void borrar_combo() {
         _momento.removeAllItems();
     }
 
+     /*se cargan todos los momentos que se pueden seleccionar*/
     public void cargar_combo_momento(JComboBox _momento) {
         _momento.addItem("Mañana");
         _momento.addItem("Medio dia");
@@ -308,6 +323,7 @@ public class Agregar extends javax.swing.JFrame {
         _momento.addItem("Noche");
     }
 
+    /*segun el tipo, se habilitaran las opciones de los instrumentos*/
     private void _LISTA_TIPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__LISTA_TIPOActionPerformed
         if (!_LISTA_TIPO.getSelectedItem().equals("ARTISTA")) {
             _instrumento_seleccionado.setEnabled(false);
@@ -320,12 +336,14 @@ public class Agregar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event__LISTA_TIPOActionPerformed
 
+    
     private void ingreso_NOMBREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso_NOMBREActionPerformed
 
     }//GEN-LAST:event_ingreso_NOMBREActionPerformed
 
+    /*conecta con la vista de "Agregar_instrumento" para hacer esa accion*/
     private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
-        var elegir = new Agregar_instrumento();
+        var elegir = new Agregar_instrumento(1);
         elegir.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
@@ -336,6 +354,8 @@ public class Agregar extends javax.swing.JFrame {
         
     }//GEN-LAST:event__instrumento_seleccionadoActionPerformed
 
+    /*segun lo que se seleccione en el combo box que tiene los tipos de cantores, se habilita o no 
+    el combo box que pregunta si toca algun instrumento*/
     private void _LISTA_TIPOItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event__LISTA_TIPOItemStateChanged
         try {
             if (evt.getStateChange() == ItemEvent.SELECTED) {

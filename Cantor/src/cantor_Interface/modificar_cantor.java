@@ -11,12 +11,17 @@ import java.util.ArrayList;
 
 public class Modificar_cantor extends javax.swing.JFrame {
 
+    /*Instanciamos el un objeto de la clase Conector para poder tener acceso a los gestores de archivos*/
     Conector conn = new Conector();
+    
+    /*se crean las variables en donde se guardaran los datos de la interfaz anterior para poder tratarlos*/
     public static Artista artMod;
     public static Gallo galloMod;
     public static Canario canMod;
     public static int tipo;
 
+    /*Constructor de la ventana en donde se cargaran los metodos que cargan los datos que se mostraran
+    inmediatamente cuando se abra la ventana, ademas en este se guardan los datos que nos pasaron por parametro*/
     public Modificar_cantor(Artista artista, Gallo gallo, Canario canario, int tipo) {
         this.artMod = artista;
         this.galloMod = gallo;
@@ -28,23 +33,28 @@ public class Modificar_cantor extends javax.swing.JFrame {
         llenar_combos();
     }
 
+    /*se borra el combo box de momentos*/
     public void borrar_combo() {
         _momento.removeAllItems();
     }
 
+    /*segun el tipo que lo identificamos con el int pasado por parametro, se muestran los datos del objeto pasado*/
     public void obtener_datos() {
         switch (this.tipo) {
             case 1:
+                /*se muestran los datos si es artista*/
                 _salida_nombre.setText(this.artMod.nombre);
                 _salida_tipo.setText("Artista");
                 _salida_fechaN.setText(this.artMod.fechaNacimiento.toString());
                 break;
             case 2:
+                /*se muestran los datos si es gallo*/
                 _salida_nombre.setText(this.galloMod.nombre);
                 _salida_tipo.setText("Gallo");
                 _salida_fechaN.setText(this.galloMod.fechaNacimiento.toString());
                 break;
             case 3:
+                /*se muestran los datos si es canario*/
                 _salida_nombre.setText(this.canMod.nombre);
                 _salida_tipo.setText("Canario");
                 _salida_fechaN.setText(this.canMod.fechaNacimiento.toString());
@@ -52,17 +62,21 @@ public class Modificar_cantor extends javax.swing.JFrame {
         }
     }
 
+    /*se llenan los combos box de instrumentos y momentos*/
     public void llenar_combos() {
         if (this.tipo == 1) {
+            /*si es de tipo artista se habilitan las opciones de instrumento*/
             ArrayList<Instrumento> aIns = conn.getGestorInstrumento().getDatos();
             for (Instrumento aIn : aIns) {
                 _instrumento_seleccionado.addItem(aIn.nombre);
             }
         } else {
+            /*si es de otro tipo que no sea artista, se inhabilitan las opciones de instrumento*/
             _instrumento_seleccionado.removeAllItems();
             _instrumento_seleccionado.addItem("No aplica");
             btn_agregar_instrumento.setEnabled(false);
         }
+        /*se añaden las opciones de momento*/
         _momento.addItem("Mañana");
         _momento.addItem("Medio dia");
         _momento.addItem("Tarde");
@@ -213,20 +227,22 @@ public class Modificar_cantor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     private void _instrumento_seleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__instrumento_seleccionadoActionPerformed
         
     }//GEN-LAST:event__instrumento_seleccionadoActionPerformed
 
+    /*si el instrumento no se encuentra en la lista, se puede cargar haciendo conexion a esta pantalla*/
     private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
-        var elegir = new Agregar_instrumento();
+        var elegir = new Agregar_instrumento(2);
         elegir.setVisible(true);
     }//GEN-LAST:event_btn_agregar_instrumentoActionPerformed
 
+    /*con este metodo se guardan los datos modificados*/
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
         Momento momento = new Momento();
         Modificar ventana;
         if (this.tipo == 1) {
+            /*si es artista, se obtienen los datos y se modifican*/
             ArrayList<Artista> art = conn.getGestorArtista().getDatos();
             for (Artista artista : art) {
                 if (this.artMod.nombre.equalsIgnoreCase(artista.nombre)) {
@@ -247,6 +263,7 @@ public class Modificar_cantor extends javax.swing.JFrame {
             ventana.setVisible(true);
             this.dispose();
         } else if (this.tipo == 2) {
+            /*si es gallo, se obtienen los datos y se modifican*/
             ArrayList<Gallo> gallos = conn.getGestorGallo().getDatos();
             for (Gallo gallo : gallos) {
                 if (this.artMod.nombre.equalsIgnoreCase(gallo.nombre)) {
@@ -261,6 +278,7 @@ public class Modificar_cantor extends javax.swing.JFrame {
             ventana.setVisible(true);
             this.dispose();
         } else {
+            /*si es canario, se obtienen los datos y se modifican*/
             ArrayList<Canario> canarios = conn.getGestorCanario().getDatos();
             for (Canario canario : canarios) {
                 if (this.artMod.nombre.equalsIgnoreCase(canario.nombre)) {

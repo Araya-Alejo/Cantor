@@ -6,6 +6,7 @@ public class Momento implements Serializable{
     public String tipo;
     private boolean alegria;
 
+    
     public boolean isAlegria() {
         return alegria;
     }
@@ -17,7 +18,8 @@ public class Momento implements Serializable{
     public String horario(){
         return "hola";
     }
-
+    
+    /*Constructor*/
     public Momento() {
     }
 }

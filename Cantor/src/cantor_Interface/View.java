@@ -5,8 +5,11 @@ import base_datos.Conector;
 
 public class View extends javax.swing.JFrame {
 
+    /*Instanciamos el un objeto de la clase Conector para poder tener acceso a los gestores de archivos*/
     Conector conn = new Conector();
     
+    /*Constructor de la ventana en donde se cargaran los metodos que cargan los datos que se mostraran
+    inmediatamente cuando se abra la ventana, ademas en este se guardan los datos que nos pasaron por parametro*/
     public View() {
         initComponents();
         setLocationRelativeTo(null);

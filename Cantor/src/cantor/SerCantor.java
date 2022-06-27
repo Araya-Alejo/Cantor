@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
+/*SuperClase. implementa la interfaz*/
 public abstract class SerCantor implements PuedeCantar, Serializable{
     public final String nombre;
     public String tipo;
     public final LocalDate fechaNacimiento;
     public Momento cuando;
 
+    /*En este constructor, ademas de guardar los valores de los parametros en sus respectivas variables,
+    trata al String para poder guardarlo tipo LocalDate*/
     public SerCantor(String nombre, String tipo, String stringfechaN, Momento momento) {
         this.nombre = nombre;
         this.tipo = tipo;
@@ -23,6 +26,7 @@ public abstract class SerCantor implements PuedeCantar, Serializable{
     
     public abstract void hacerCantar(SerCantor objSC);
     
+    /*Metodo para hacer cantar*/
     public int calcularEdad(){
         LocalDate fechaHoy = LocalDate.now();
         int edad = Period.between(fechaNacimiento, fechaHoy).getYears();

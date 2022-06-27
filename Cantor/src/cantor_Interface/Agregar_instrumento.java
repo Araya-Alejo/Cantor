@@ -3,14 +3,17 @@ package cantor_Interface;
 import cantor.Instrumento;
 import base_datos.*;
 import Util.util;
-import java.util.ArrayList;
 
 public class Agregar_instrumento extends javax.swing.JFrame {
 
+    /*Instanciamos el un objeto de la clase Conector para poder tener acceso a los gestores de archivos*/
     Conector conn = new Conector();
-
-    public Agregar_instrumento() {
-
+    public static int quienLlama;
+    
+    /*Constructor de la ventana en donde se cargaran los metodos que cargan los datos que se mostraran
+    inmediatamente cuando se abra la ventana*/
+    public Agregar_instrumento(int quienLlama) {
+        this.quienLlama = quienLlama;
         initComponents();
         setLocationRelativeTo(null);
 
@@ -77,14 +80,23 @@ public class Agregar_instrumento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Metodo para poder guardar un nuevo instrumento*/
     private void btn_agregar_instrumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_instrumentoActionPerformed
         try {
             Instrumento instrumento = new Instrumento(_instrumento.getText());
             conn.getGestorInstrumento().guardarDato(instrumento);
             util.MENSAJE("Instrumento guardado");
-            Agregar ventana = new Agregar();
-            ventana.setVisible(true);
-            this.dispose();
+            /*como a esta interfaz la llaman desde 2 interfaces diferentes, se volverá a la que la llamó*/
+            if(this.quienLlama==1){
+                Agregar ventana = new Agregar();
+                ventana.setVisible(true);
+                this.dispose();
+            }
+            if(this.quienLlama==2){
+                Modificar ventana= new Modificar();
+                ventana.setVisible(true);
+                this.dispose();
+            }
         } catch (Exception e) {
             System.out.println("error" + e);
         }
@@ -125,7 +137,7 @@ public class Agregar_instrumento extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agregar_instrumento().setVisible(true);
+                new Agregar_instrumento(quienLlama).setVisible(true);
             }
         });
     }

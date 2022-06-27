@@ -10,6 +10,7 @@ public class Instrumento implements Serializable{
         this.nombre = nombre;
     }
     
+    
     public boolean ejecuta(){
         System.out.println("Suena");
         return true;
